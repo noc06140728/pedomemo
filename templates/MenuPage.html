@@ -1,15 +1,18 @@
 <html>
 <head>
-<title>pedomemo - ãƒ¡ãƒ‹ãƒ¥ãƒ¼</title>
+<title>pedomemo - ƒƒjƒ…[</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
 </head>
 <body>
 <h1>pedomemo</h1>
-<h2>[alphaç‰ˆ]</h2>
-<div>ã‚ˆã†ã“ã {{user.userid}} ã•ã‚“ã€‚</div>
+<h2>[beta”Å]</h2>
+<div>‚æ‚¤‚±‚» {{user.userid|escape}} ‚³‚ñB</div>
 <ul>
-<li><a href="/input?key={{user.accesskey}}">æ­©æ•°å…¥åŠ›</a></li>
-<li><a href="/history?key={{user.accesskey}}">å±¥æ­´è¡¨ç¤º</a></li>
+<li><a href="/input?key={{user.accesskey|urlencode}}">•à”“ü—Í</a></li>
+<li><a href="/history?key={{user.accesskey|urlencode}}">—š—ð•\Ž¦</a></li>
+<li><a href="/ranking?key={{user.accesskey|urlencode}}">ƒ‰ƒ“ƒN•\Ž¦</a><font color="red">[NEW]</font></li>
+<li><a href="/profile?key={{user.accesskey|urlencode}}">ƒvƒƒtƒB[ƒ‹</a><font color="red">[NEW]</font></li>
 </ul>
-<div>ã“ã®ãƒšãƒ¼ã‚¸ã‚’ãƒ–ãƒƒã‚¯ãƒžãƒ¼ã‚¯ç™»éŒ²ã—ã¦ãã ã•ã„ã€‚</div>
+<div>‚±‚Ìƒy[ƒW‚ðƒuƒbƒNƒ}[ƒN“o˜^‚µ‚Ä‚­‚¾‚³‚¢B</div>
 </body>
 </html>

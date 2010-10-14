@@ -1,15 +1,16 @@
 <html>
 <head>
-<title>pedomemo - æ­©æ•°å…¥åŠ›</title>
+<title>pedomemo - •à”“ü—Í</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
 </head>
 <body>
-<h1>ä»Šæ—¥ã¯ä½•æ­©ã‚ã‚‹ã„ãŸï¼Ÿ</h1>
+<h1>¡“ú‚Í‰½•à‚ ‚é‚¢‚½H</h1>
 <form method="POST" action="/input">
-<div>ãƒ¦ãƒ¼ã‚¶ID: {{user.userid}}<input type="hidden" name="key" value="{{user.accesskey}}"/></div>
-<div>æ—¥ä»˜: <input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="8"/></div>
-<div>æ­©æ•°: <input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>æ­©</div>
-<div><input type="submit" value="ç™»éŒ²"/></div>
+<div>ƒ†[ƒUID: {{user.userid}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
+<div>“ú•t: <input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="8"/></div>
+<div>•à”: <input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>•à</div>
+<div><input type="submit" value="“o˜^"/></div>
 </form>
-<div><a href="/menu?key={{user.accesskey}}">ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸</a></div>
+<div><a href="/menu?key={{user.accesskey|urlencode}}">ƒƒjƒ…[‚Ö</a></div>
 </body>
 </html>

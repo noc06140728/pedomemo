@@ -1,14 +1,15 @@
 <html>
 <head>
-<title>pedomemo - å±¥æ­´è¡¨ç¤º</title>
+<title>pedomemo - —š—ğ•\¦</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
 </head>
 <body>
-<h1>ã©ã‚Œãã‚‰ã„æ­©ã„ãŸï¼Ÿ</h1>
-<div>æœˆé–“ç´¯è¨ˆ: {{monthly_steps}}æ­©({{monthly_rank}}ä½/{{users_count}}äºº)</div>
-<div>æœŸé–“ç´¯è¨ˆ: {{campaign_steps}}æ­©({{campaign_rank}}ä½/{{users_count}}äºº)</div>
+<h1>‚Ç‚ê‚­‚ç‚¢•à‚¢‚½H</h1>
+<div>ŒŠÔ—İŒv: {{monthly_steps}}•à({{monthly_rank}}ˆÊ/{{users_count}}l)</div>
+<div>ŠúŠÔ—İŒv: {{campaign_steps}}•à({{campaign_rank}}ˆÊ/{{users_count}}l)</div>
 {% for record in records %}
-<div><a href="/input?key={{user.accesskey}}&date={{record.date|date:"Ymd"}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"|escape}}æ­©</div>
+<div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}•à</div>
 {% endfor %}
-<div><a href="/menu?key={{user.accesskey}}">ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸</a></div>
+<div><a href="/menu?key={{user.accesskey|urlencode}}">ƒƒjƒ…[‚Ö</a></div>
 </body>
 </html>
