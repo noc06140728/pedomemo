@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>pedomemo - 履歴表示</title>
+</head>
+<body>
+<h1>どれくらい歩いた？</h1>
+<div>月間累計: {{monthly_steps}}歩({{monthly_rank}}位/{{users_count}}人)</div>
+<div>期間累計: {{campaign_steps}}歩({{campaign_rank}}位/{{users_count}}人)</div>
+{% for record in records %}
+<div><a href="/input?key={{user.accesskey}}&date={{record.date|date:"Ymd"}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"|escape}}歩</div>
+{% endfor %}
+<div><a href="/menu?key={{user.accesskey}}">メニューへ</a></div>
+</body>
+</html>

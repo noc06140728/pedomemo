@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>pedomemo - 歩数入力</title>
+</head>
+<body>
+<h1>今日は何歩あるいた？</h1>
+<form method="POST" action="/input">
+<div>ユーザID: {{user.userid}}<input type="hidden" name="key" value="{{user.accesskey}}"/></div>
+<div>日付: <input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="8"/></div>
+<div>歩数: <input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>歩</div>
+<div><input type="submit" value="登録"/></div>
+</form>
+<div><a href="/menu?key={{user.accesskey}}">メニューへ</a></div>
+</body>
+</html>
