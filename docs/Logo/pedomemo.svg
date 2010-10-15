@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="pedomemo.svg">
+  <defs
+     id="defs4">
+    <filter
+       id="filter3528"
+       inkscape:label="Drop shadow"
+       width="1.5"
+       height="1.5"
+       x="-.25"
+       y="-.25">
+      <feGaussianBlur
+         id="feGaussianBlur3530"
+         in="SourceAlpha"
+         stdDeviation="2"
+         result="blur" />
+      <feColorMatrix
+         id="feColorMatrix3532"
+         result="bluralpha"
+         type="matrix"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0 " />
+      <feOffset
+         id="feOffset3534"
+         in="bluralpha"
+         dx="4"
+         dy="4"
+         result="offsetBlur" />
+      <feMerge
+         id="feMerge3536">
+        <feMergeNode
+           id="feMergeNode3538"
+           in="offsetBlur" />
+        <feMergeNode
+           id="feMergeNode3540"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter
+       id="filter3850"
+       inkscape:label="Drop shadow"
+       width="1.5"
+       height="1.5"
+       x="-.25"
+       y="-.25">
+      <feGaussianBlur
+         id="feGaussianBlur3852"
+         in="SourceAlpha"
+         stdDeviation="2"
+         result="blur" />
+      <feColorMatrix
+         id="feColorMatrix3854"
+         result="bluralpha"
+         type="matrix"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0 " />
+      <feOffset
+         id="feOffset3856"
+         in="bluralpha"
+         dx="2"
+         dy="2"
+         result="offsetBlur" />
+      <feMerge
+         id="feMerge3858">
+        <feMergeNode
+           id="feMergeNode3860"
+           in="offsetBlur" />
+        <feMergeNode
+           id="feMergeNode3862"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="365.47101"
+     inkscape:cy="602.98862"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1380"
+     inkscape:window-height="889"
+     inkscape:window-x="1305"
+     inkscape:window-y="59"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="レイヤー 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       y="256.29074"
+       x="98.214287"
+       id="image2993"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAt8AAALfCAYAAAC5Cq7EAAAABHNCSVQICAgIfAhkiAAAFiNJREFU eJzt3dGRI8l1QFGlAh6JtsgFmsGgGXRBtlA2Jb8ZnN3FdPbeh5w653vQ+SqrCrhRsVisvff+LwAA 4E/339MDAADAU4hvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhv AACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAA iIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiI bwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8A AIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACI iG8AAIiIbwAAiIhvAACIvKYHqK21pkfgD+y9v/zak/N7su6N3AuNqevqxvM7de9PcbyNG/fqaZ72 +evJNwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABE xDcAAETENwAARMQ3AABEXtMD3GTvPT3CNdZa0yPwJ3IvNJ52Hz3teE+c3IMn+3zjuie8173P/fs+ T74BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+ AQAgIr4BACAivgEAIPKaHuAp1lrTI/y0vff0CD9tauaT83vjPt94PZ+48RydzDx1fqdmvvH8Pu0e vNGN5+jGe+FGnnwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwD AEBEfAMAQER8AwBARHwDAEBEfAMAQOQ1PQB8p7XWl1+79x55rZmbdU9MrTvlxnN0Yup6PjF1jm48 v/BpPPkGAICI+AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgGAICI+AYA gIj4BgCAiPgGAICI+AYAgMhregD4FGutkXX33iPrTjnZ56m9mro2pjzteE88ba+e9n4FfwZPvgEA ICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAi vgEAICK+AQAg8poe4Cn23tMj8AdOztFa6xsn+XxT1/PUPt94/964Vycz33j/uq7ed+Ne3TgzDU++ AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEA ICK+AQAgIr4BACDymh7gJmut6RHg35xck3vv69Y9cePx3rju0zzt/D7turpxZj6fJ98AABAR3wAA EBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR 3wAAEHlND1Dbe0+PwJ/oxvO71vrya288Xt43dX6fdl2dHO/J/TvF+YVZnnwDAEBEfAMAQER8AwBA RHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQGTt vff0EPy+tdaXXzt1ep8284mT453a56m9mnLj2+SN1/OJp12TU268F07ceF3d+N7+tOvKk28AAIiI bwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8A AIiIbwAAiLymB6ittUbW3XuPrDvl5HhvPEdTM0+Zup5P9vlpM3vPaUyd3xvvhRM3fi6ceNpnytN4 8g0AABHxDQAAEfENAAAR8Q0AABHxDQAAEfENAAAR8Q0AABHxDQAAEfENAAAR8Q0AABHxDQAAEfEN AAAR8Q0AABHxDQAAkdf0AHyutdb0CD9t733duif7PLXuialzdGLqHJ142swnbjzep937N75vTLnx /D6NJ98AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAA EBHfAAAQEd8AABAR3wAAEFl77z09BJ9prfXl155cVifr3she8Wmmrsmpj6Mb3+t8dL9v6n3yxut5 ytOuZ0++AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4B ACAivgEAICK+AQAgIr4BACCy9t57egh+31prZN2TS+NpM1u3ceNenbhx5hNP+zi68Rw9jffY9z3t /j3hyTcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAETENwAA RMQ3AABExDcAAETENwAARF7TA9xkrfXl1+69v3GSz3dyvCf7fGJq5qlrY2rdG/fqxI33wo3s1ee7 8f592vsVDU++AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAg Ir4BACAivgEAICK+AQAgIr4BACDymh7gKdZa0yP8tBtnPvG04z0xtVcn6+69v3GS903t1dTx3ujG vbrxXjgxdbwnr52a2fvz5/PkGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi 4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAir+kBnmLv/eXXrrVG1p1ycrwnr51y4/l1Pb/v xpmn7qOTvbrxmnza+9WJG+8j+C2efAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8 AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBA5DU9QG2t9eXX7r2vW/fEycwnpo73xNOu qxvXPXHjPTg1843n98TT7oUp7oVmXRqefAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMA QER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBAZO299/QQ/HnWWiPrTl1WJ8d7MvPU uk/ztPN747pTbryPvG+8zzX5vqd97t/Ik28AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8A AIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiLymB6ittb782r33detOzTx1vE/z tH2+8R6ccnK8U6b2+Wnvzyeedg/eeB+duPG97kaefAMAQER8AwBARHwDAEBEfAMAQORxX7jk1zb1 ZZGnrXujG/fqxplvdOM+mxnu5ck3AABExDcAAETENwAARMQ3AABEfOES+OX89e9/eevf/eNv//yT JwGAf+fJNwAARMQ3AABExDcAAETENwAARHzhkt809Wtka60vv9YvqAH8eqY+F05eezLzCZ+Dn8+T bwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIj4hUse6a9//8tb/+4f f/vnl1/77t/7bifz/cinz1zM9yOftM///7//+Ut6//N///krdz/6dz/y3a898e667zqZzz6/77vn g1+JJ98AABAR3wAAEBHfAAAQEd8AABBZe2/figis9b1fZnnX1Ok9Od5i5uILfidf6nzXd6/xK89c rDH196a+4PfdXw78lf+efT77EqbP0M8nJ9/nyTcAAETENwAARMQ3AABExDcAAER84TLiyyLv+6Qv XH73rycWv6xp5ufNfOMXAT/9lxw/6Xifts8/4jP088nJ93nyDQAAEfENAAAR8Q0AABHxDQAAkdf0 AMD3OvnFR/g0735xD+AWnnwDAEBEfAMAQER8AwBARHwDAEDEFy4jJ7/8dPJLV0/7VTC+/5cXYdJ3 //Ii/Opu/FXOpzWDJ98AABAR3wAAEBHfAAAQEd8AABBZ+2n/lfuFpr40eeLTL6uTX4F89wuN765x 8gXJG9eY+nvFGlN/791fgfzRlxenXvsj3/33vnuNG1/7I5/+937kaf/zgBu/vHjjzFM8+QYAgIj4 BgCAiPgGAICI+AYAgIhfuITf8aMvvBVf8Dv5ez+a72Tmd9c9ee3JzN99jk7W+KRr40bvftnw3S/4 naz7Kyv2+Wl7Cj/Dk28AAIiIbwAAiIhvAACIiG8AAIg87hcub/y1yBN+6erHil+GBOB7fPpnyo9M zfy0XwO9kSffAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEPELl7+4 p/2yFwC/nhs/U/zCJb/Fk28AAIiIbwAAiIhvAACIiG8AAIg87guXJ3yJ4fM97QsuU268Jt2/jRvv hRu/kHdi6r3uaffCFOfo83nyDQAAEfENAAAR8Q0AABHxDQAAEfENAAAR8Q0AABHxDQAAEfENAAAR 8Q0AABHxDQAAEfENAAAR8Q0AABHxDQAAEfENAACRtffe00Pw61lrTY9wjafdgifXxsleTV2TUzPf uFe878b3jaddzzfe+zQ8+QYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgG AICI+AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAyGt6gNpa68uv3Xtft+4JMzfrnrz2xNQ5OjG1Vydu vCanPO2avPF9csqN+3wj+9zw5BsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAA IuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAImvvvaeHKK21RtY92eaTmadO740zT3naXk0d 79S9P8Ve/dpu/EyxbsPn/ufz5BsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAA IuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAIq/pAW6y975u3bXWN07yvqm9OnGyVyfHe+Ne 3WjqPnJ+3+ccvW/qeKc+U2483huvKxqefAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMA QER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBA5DU9QG3vPbLuWmtk3RMne3VyvFPr Ps3UOeLX5v79fDfe+1PXxo3X840zP40n3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAA EBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQWXvvPT0Ev2+t9eXX3nh6T473Rifn aGqvpmZ+2l7xvqedX58LjRvP74kb39tv5Mk3AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3 AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAERe0wPcZK01su7e+8uvPZl5at0p U8f7tHP0tOv5xnvhxMk+T7lxZhpPe5982vvVFE++AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEA ICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACDymh6gttaaHuGnncy89/7G ST5/3RM3XhsnTs6RvWo8bZ9vfK972sxTvF+9z3X1+Tz5BgCAiPgGAICI+AYAgIj4BgCAiPgGAICI +AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgGAICI+AYAgIj4BgCAiPgGAIDIa3qA2t77y69da42s e+Jk5ik3nqMb1z0xdT3f6MZ7kIbPlM9f90Y3XldP48k3AABExDcAAETENwAARMQ3AABExDcAAETE NwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAETENwAARMQ3AABExDcAAERe0wPcZO89PcJPu3Fm +C1rrekRfpp78H0ne3VybZysOzXzlBvP0ZSp8zu1VzeeoymefAMAQER8AwBARHwDAEBEfAMAQER8 AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBA5DU9QG2tNT0C f2DvPfLaG914vCf34Mnx3rjuiaddG08zdT3fyF69z/tVw5NvAACIiG8AAIiIbwAAiIhvAACIiG8A AIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIiIbwAAiIhvAACIiG8AAIi8pge4yd57eoRr rLWmR/hpUzNPrXvj9XyyVzce743c+42T6/lp99GNM5+48Xp+Gk++AQAgIr4BACAivgEAICK+AQAg Ir4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACDymh7gKdZa 0yP8tL339Aipk+OdOr83nqMbZ54ydU2erDt1fm98jz0xdX6nPO38nnAPfj5PvgEAICK+AQAgIr4B ACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAg 8poeAL7TWmt6hNTU8e69R9a90clenZzfG9edMjXzjfv8tJl53433/hRPvgEAICK+AQAgIr4BACAi vgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAgIr4BACAivgEAICK+AQAg8poe AL7T3vvLr11rfeMkv7apvTo5v1NO9mrqeKfuo5N1zfz5btznEzeeoxM3vtdN8eQbAAAi4hsAACLi GwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsAACLiGwAAIuIbAAAi4hsA ACKv6QGeYu89PQJ/YOocrbW+/Nobr6uT471x3RtNXZPuhfc97XhvvH+fdo5uPN4pnnwDAEBEfAMA QER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBEfAMAQER8AwBARHwDAEBE fAMAQOQ1PcBN1lrTI8D19t7XrXty708d74kbZz7xtGvjxplv3Ksb95mGJ98AABAR3wAAEBHfAAAQ Ed8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEFl7 7z09BAAAPIEn3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAA EBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR 3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8A ABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQ Ed8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHfAAAQEd8AABAR3wAAEBHf AAAQEd8AABAR3wAAEBHfAAAQ+RdjwZa57q7hdwAAAABJRU5ErkJggg== "
+       height="557.85712"
+       width="557.85712" />
+    <text
+       xml:space="preserve"
+       style="font-size:128px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;filter:url(#filter3528)"
+       x="67.857147"
+       y="228.07646"
+       id="text2996"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2998"
+         x="67.857147"
+         y="228.07646"><tspan
+           style="fill:#668000"
+           id="tspan3002">pedo</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#d45500;font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan3000">memo</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;filter:url(#filter3850)"
+       x="75.714287"
+       y="912.36218"
+       id="text3004"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3006"
+         x="75.714287"
+         y="912.36218">http://hardwave-<tspan
+   style="font-size:32px;fill:#668000"
+   id="tspan3008">pedo</tspan><tspan
+   style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#d45500;font-family:Serif;-inkscape-font-specification:Serif"
+   id="tspan3010">memo</tspan>.appspot.com/</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-552.85712"
+       y="435.21933"
+       id="text2991"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2993"
+         x="-552.85712"
+         y="435.21933" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="294.32254"
+       y="310.76773"
+       id="text2995"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2997"
+         x="294.32254"
+         y="310.76773"
+         dx="0"
+         style="font-size:9px;font-weight:bold;-inkscape-font-specification:MS UI Gothic Bold">pedomemo とは？ </tspan><tspan
+         sodipodi:role="line"
+         x="294.32254"
+         y="322.01773"
+         id="tspan2999"
+         style="font-size:9px;font-weight:bold;-inkscape-font-specification:MS UI Gothic Bold" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="380.33133"
+       y="322.28558"
+       id="text3035"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="380.33133"
+         y="322.28558"
+         id="tspan3039"
+         style="font-size:9px;font-weight:bold;-inkscape-font-specification:MS UI Gothic Bold">ペドメータのメモのこと！</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="429.88269"
+       y="401.76523"
+       id="text3041"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3043"
+         x="429.88269"
+         y="401.76523">ペドメータとは？</tspan><tspan
+         sodipodi:role="line"
+         x="429.88269"
+         y="413.01523"
+         id="tspan3045" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="487.82739"
+       y="447.30096"
+       id="text3047"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3049"
+         x="487.82739"
+         y="447.30096">万歩計のこと！</tspan><tspan
+         sodipodi:role="line"
+         x="487.82739"
+         y="458.55096"
+         id="tspan3051" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="372.15863"
+       y="458.58151"
+       id="text3053"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3055"
+         x="372.15863"
+         y="458.58151">ログイン不要</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="282.70923"
+       y="435.87234"
+       id="text3057"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3059"
+         x="282.70923"
+         y="435.87234">メニュー画面をブックマーク登録</tspan><tspan
+         sodipodi:role="line"
+         x="282.70923"
+         y="447.12234"
+         id="tspan3061" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="395.95413"
+       y="584.23462"
+       id="text3067"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="395.95413"
+         y="584.23462"
+         id="tspan3071">携帯からも利用できる</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="224.55621"
+       y="641.19885"
+       id="text3073"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="224.55621"
+         y="641.19885"
+         id="tspan3077">現在の順位</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="485.74585"
+       y="663.00562"
+       id="text3079"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3081"
+         x="485.74585"
+         y="663.00562">友達にも</tspan><tspan
+         sodipodi:role="line"
+         x="485.74585"
+         y="674.25562"
+         id="tspan3083" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="230.85744"
+       y="481.55313"
+       id="text3063-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3065-8"
+         x="230.85744"
+         y="481.55313">誰でも簡単！</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="411.08395"
+       y="606.2735"
+       id="text3067-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="411.08395"
+         y="606.2735"
+         id="tspan3071-7">いつでもどこでも！</tspan><tspan
+         sodipodi:role="line"
+         x="411.08395"
+         y="617.5235"
+         id="tspan3134" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="487.88116"
+       y="595.00464"
+       id="text3079-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="487.88116"
+         y="595.00464"
+         id="tspan3083-4">pedomemo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="248.18649"
+       y="743.28925"
+       id="text3073-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3075-1"
+         x="248.18649"
+         y="743.28925">リアルタイムに分かる！</tspan><tspan
+         sodipodi:role="line"
+         x="248.18649"
+         y="754.53925"
+         id="tspan3077-2" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="156.79176"
+       y="470.16895"
+       id="text3063-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3065-5"
+         x="156.79176"
+         y="470.16895">シンプルな機能だから</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="509.53357"
+       y="720.77301"
+       id="text3079-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="509.53357"
+         y="720.77301"
+         id="tspan3116">教えてあげよう。</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="510.34128"
+       y="606.12073"
+       id="text3079-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3081-0"
+         x="510.34128"
+         y="606.12073">を</tspan><tspan
+         sodipodi:role="line"
+         x="510.34128"
+         y="617.37073"
+         id="tspan3083-6" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:MS UI Gothic;-inkscape-font-specification:MS UI Gothic Bold"
+       x="260.1062"
+       y="651.62921"
+       id="text3079-1-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3081-0-5"
+         x="260.1062"
+         y="651.62921">が</tspan><tspan
+         sodipodi:role="line"
+         x="260.1062"
+         y="662.87921"
+         id="tspan3083-6-0" /></text>
+  </g>
+</svg>
