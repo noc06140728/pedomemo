@@ -202,7 +202,7 @@ class InputPage(BaseHandler):
 class HistoryPage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
-        records = StepRecord.gql("WHERE user=:user ORDER BY date DESC", user=user).fetch(10)
+        records = StepRecord.gql("WHERE user=:user ORDER BY date DESC", user=user).fetch(30)
         monthly_term = Term()
         monthly_steps = user.getStepSummary(monthly_term)
         monthly_rank = Ranking(monthly_term).getRank(user)
