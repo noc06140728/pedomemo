@@ -62,6 +62,13 @@ class User(db.Model):
             raise ApplicationError(u'該当するユーザが見つかりませんでした。ユーザ登録しなおしてください。')
         return user
 
+    @classmethod
+    def getUser(cls, userid):
+        user = User.gql("WHERE userid=:1", parseUserId(userid)).get()
+        if user is None:
+            raise ApplicationError(u'該当するユーザが見つかりませんでした。')
+        return user
+
     def getStepRecord(self, date):
         return StepRecord.gql('WHERE user=:1 AND date=:2', self, date).get()
 
@@ -221,7 +228,8 @@ class RankingPage(BaseHandler):
 class ProfilePage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
-        self.write_response_template({'user': user, 'profile': user.profile.encode('Shift-JIS')})
+        profile_user = User.getUser(self.request.get('userid'))
+        self.write_response_template({'user': user, 'profile_user': profile_user, 'profile': profile_user.profile.encode('Shift-JIS')})
 
 application = webapp.WSGIApplication([
   ('/', SignupPage),
