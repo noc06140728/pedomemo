@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>pedomemo - プロフィール</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+</head>
+<body>
+<h1>マイプロフィール</h1>
+<form method="POST" action="/myprofile">
+<div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
+<div>プロフィール:<input type="text" name="profile" istyle="1" mode="hiragana" maxlength="64" value="{{profile}}"/></div>
+<div><input type="submit" value="登録"/></div>
+</form>　　
+<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+</body>
+</html>

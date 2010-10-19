@@ -231,13 +231,26 @@ class ProfilePage(BaseHandler):
         profile_user = User.getUser(parseUserId(self.request.get('userid')))
         self.write_response_template({'user': user, 'profile_user': profile_user, 'profile': profile_user.profile.encode('Shift-JIS')})
 
+class MyProfilePage(BaseHandler):
+    def get(self):
+        user = User.getByAccessKey(self.request.get('key'))
+        self.write_response_template({'user': user, 'profile': user.profile.encode('Shift-JIS')})
+
+    def post(self):
+        self.request.charset = 'Shift_JIS'
+        user = User.getByAccessKey(self.request.get('key'))
+        user.profile = parseProfile(self.request.get('profile'))
+        user.put()
+        self.redirect('/menu?key=%s' % user.accesskey)
+
 application = webapp.WSGIApplication([
   ('/', SignupPage),
   ('/menu', MenuPage),
   ('/input', InputPage),
   ('/history', HistoryPage),
   ('/ranking', RankingPage),
-  ('/profile', ProfilePage)
+  ('/profile', ProfilePage),
+  ('/myprofile', MyProfilePage)
 ], debug=False)
 
 
