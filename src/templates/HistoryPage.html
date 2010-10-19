@@ -10,6 +10,7 @@
 {% for record in records %}
 <div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}•à</div>
 {% endfor %}
+<hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">ƒƒjƒ…[‚Ö</a></div>
 </body>
 </html>

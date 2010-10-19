@@ -9,6 +9,7 @@
 {% for item in ranking.rank_list %}
 <div>[{{item.rank}}ˆÊ]<a href="/profile?key={{user.accesskey|urlencode}}&userid={{item.user.userid|escape}}">{{item.user.userid|escape}}</a>: {{item.steps}}•à</div>
 {% endfor %}
+<hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">ƒƒjƒ…[‚Ö</a></div>
 </body>
 </html>
