@@ -64,7 +64,7 @@ class User(db.Model):
 
     @classmethod
     def getUser(cls, userid):
-        user = User.gql("WHERE userid=:1", parseUserId(userid)).get()
+        user = User.gql("WHERE userid=:1", (userid)).get()
         if user is None:
             raise ApplicationError(u'該当するユーザが見つかりませんでした。')
         return user
@@ -228,7 +228,7 @@ class RankingPage(BaseHandler):
 class ProfilePage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
-        profile_user = User.getUser(self.request.get('userid'))
+        profile_user = User.getUser(parseUserId(self.request.get('userid')))
         self.write_response_template({'user': user, 'profile_user': profile_user, 'profile': profile_user.profile.encode('Shift-JIS')})
 
 application = webapp.WSGIApplication([
