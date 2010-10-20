@@ -4,5 +4,10 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: .*
+- url: /favicon.ico
+  static_files: images/favicon.ico
+  upload: /static/images/favicon.ico
+
+- url: /.*
   script: pedomemo.py
+
