@@ -27,6 +27,11 @@ def parseProfile(strprofile):
         raise ApplicationError(u'プロフィールは64文字以内で入力してください。')
     return strprofile
 
+def parseComment(strcomment):
+    if len(strcomment.encode('SHIFT_JIS')) > 40:
+        raise ApplicationError(u'コメントは20文字以内で入力してください。')
+    return strcomment
+
 def parseDate(strdate):
     try:
         intdate = int(strdate)
@@ -104,6 +109,14 @@ class StepRecord(db.Model):
     comment = db.StringProperty()
     entrydate = db.DateTimeProperty(auto_now_add=True)
 
+    @classmethod
+    def getRecentStepRecords(self, count):
+        records = []
+        for record in StepRecord.gql('ORDER BY entrydate DESC'):
+            if (record.comment <> '') and (record.comment <> 'TODO'):
+                records.append(record)
+            if len(records) >= count: break
+        return records
 
 class Term:
     def __init__(self, start=None, end=None):
@@ -190,9 +203,11 @@ class InputPage(BaseHandler):
         if not record:
             record = StepRecord()
             record.date = date
-        self.write_response_template({'user': user, 'record': record})
+            record.comment = ''
+        self.write_response_template({'user': user, 'record': record, 'comment': record.comment.encode('Shift-JIS')})
 
     def post(self):
+        self.request.charset = 'Shift_JIS'
         user = User.getByAccessKey(self.request.get('key'))
         date = parseDate(self.request.get('date'))
         record = user.getStepRecord(date)
@@ -201,7 +216,7 @@ class InputPage(BaseHandler):
         record.user = user
         record.date = date
         record.steps = parseSteps(self.request.get('steps'))
-        record.comment = "TODO"
+        record.comment = parseComment(self.request.get('comment'))
         record.put()
         memcache.flush_all()
         self.redirect('/history?key=%s' % user.accesskey)
@@ -243,6 +258,16 @@ class MyProfilePage(BaseHandler):
         user.put()
         self.redirect('/menu?key=%s' % user.accesskey)
 
+class CommentsPage(BaseHandler):
+    def get(self):
+        import random
+        user = User.getByAccessKey(self.request.get('key'))
+        steps = StepRecord.getRecentStepRecords(10)
+        COLOR_LIST = ["#d43333", "#d45500", "#556680", "#668000"]
+        SPEED_LIST = [2, 3, 4, 5]
+        comments = map(lambda s: {'userid': s.user.userid, 'comment': s.comment.encode('Shift-JIS'), 'color': random.choice(COLOR_LIST), 'speed': random.choice(SPEED_LIST)}, steps)
+        self.write_response_template({'user': user, 'comments': comments})
+
 application = webapp.WSGIApplication([
   ('/', SignupPage),
   ('/menu', MenuPage),
@@ -250,7 +275,8 @@ application = webapp.WSGIApplication([
   ('/history', HistoryPage),
   ('/ranking', RankingPage),
   ('/profile', ProfilePage),
-  ('/myprofile', MyProfilePage)
+  ('/myprofile', MyProfilePage),
+  ('/comments', CommentsPage)
 ], debug=False)
 
 

@@ -4,17 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
 </head>
 <body>
-<h1>コメント広場</h1>
-<font color="#d43333"><marquee scrollamount="3" loop="-1">プロフィール変更！-noc</marquee></font>
-<font color="#d45500"><marquee scrollamount="4" loop="-1">健康塾が近づいてきたぁ！-iwara</marquee></font>
-<font color="#556680"><marquee scrollamount="2" loop="-1">ぜんぜん歩けてない-Kyamamoto</marquee></font>
-<font color="#668000"><marquee scrollamount="4" loop="-1">負けないです-minami</marquee></font>
-<font color="#d45500"><marquee scrollamount="5" loop="-1">20万歩突破！-mizu</marquee></font>
-<font color="#668000"><marquee scrollamount="2" loop="-1">まだまだぁ-yoshi</marquee></font>
-<font color="#556680"><marquee scrollamount="4" loop="-1">…-dadada</marquee></font>
-<font color="#d43333"><marquee scrollamount="3" loop="-1">まだまだ、これからです-eda</marquee></font>
-<font color="#d45500"><marquee scrollamount="3" loop="-1">ただいま、休歩中-miya</marquee></font>
-<font color="#d43333"><marquee scrollamount="2" loop="-1">キター-eye</marquee></font>
+<h1>みんなのコメント</h1>
+{% for c in comments %}
+<font color="{{c.color}}"><marquee scrollamount="{{c.speed}}" loop="-1">{{c.comment}}-{{c.userid}}</marquee></font>
+{% endfor %}
 <hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
 </body>
