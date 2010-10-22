@@ -9,6 +9,7 @@
 <div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
 <div>日付:<input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="8"/></div>
 <div>歩数:<input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>歩</div>
+<div>コメント:<input type="text" name="comment" value="{{comment|default:""}}" istyle="1" mode="hiragana" maxlength="20"/></div>
 <div><input type="submit" value="登録"/></div>
 </form>
 <hr/>

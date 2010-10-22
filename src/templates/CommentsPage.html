@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>pedomemo - コメント広場</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+</head>
+<body>
+<h1>みんなのコメント</h1>
+{% for c in comments %}
+<font color="{{c.color}}"><marquee scrollamount="{{c.speed}}" loop="-1">{{c.comment}}-{{c.userid}}</marquee></font>
+{% endfor %}
+<hr/>
+<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+</body>
+</html>
