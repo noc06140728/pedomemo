@@ -85,18 +85,6 @@ class User(db.Model):
             memcache.set(memkey, steps, namespace='steps')
         return steps
 
-"""    def getRank(self, term):
-        memkey = '%s:%s' % (self.userid, term)
-        rank = memcache.get(memkey, namespace='rank')
-        if rank is None:
-            steps = self.getStepSummary(term)
-            rank = 1
-            for other in User.all():
-                if other.getStepSummary(term) > steps:
-                    rank += 1
-            memcache.set(memkey, rank, namespace='rank')
-        return rank
-"""
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
     date = db.DateProperty()
