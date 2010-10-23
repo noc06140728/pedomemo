@@ -90,6 +90,9 @@ class User(db.Model):
             memcache.set(memkey, steps, namespace='steps')
         return steps
 
+    def getSjisProfile(self):
+        return self.profile.encode('SHIFT_JIS')
+
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
     date = db.DateProperty()
@@ -232,12 +235,12 @@ class ProfilePage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
         profile_user = User.getUser(parseUserId(self.request.get('userid')))
-        self.write_response_template({'user': user, 'profile_user': profile_user, 'profile': profile_user.profile.encode('Shift-JIS')})
+        self.write_response_template({'user': user, 'profile_user': profile_user})
 
 class MyProfilePage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
-        self.write_response_template({'user': user, 'profile': user.profile.encode('Shift-JIS')})
+        self.write_response_template({'user': user})
 
     def post(self):
         self.request.charset = 'Shift_JIS'
