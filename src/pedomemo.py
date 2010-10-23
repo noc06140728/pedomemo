@@ -109,6 +109,9 @@ class StepRecord(db.Model):
             if len(records) >= count: break
         return records
 
+    def getSjisComment(self):
+        return self.comment.encode('SHIFT_JIS')
+
 class Term:
     def __init__(self, start=None, end=None):
         today = datetime.date.today()
@@ -195,7 +198,7 @@ class InputPage(BaseHandler):
             record = StepRecord()
             record.date = date
             record.comment = ''
-        self.write_response_template({'user': user, 'record': record, 'comment': record.comment.encode('Shift-JIS')})
+        self.write_response_template({'user': user, 'record': record})
 
     def post(self):
         self.request.charset = 'Shift_JIS'
@@ -251,13 +254,19 @@ class MyProfilePage(BaseHandler):
 
 class CommentsPage(BaseHandler):
     def get(self):
-        import random
         user = User.getByAccessKey(self.request.get('key'))
         steps = StepRecord.getRecentStepRecords(10)
+        self.write_response_template({'user': user, 'steps': steps, 'self': self})
+
+    def random_color(self):
+        import random
         COLOR_LIST = ["#d43333", "#d45500", "#556680", "#668000"]
+        return random.choice(COLOR_LIST)
+
+    def random_speed(self):
+        import random
         SPEED_LIST = [2, 3, 4, 5]
-        comments = map(lambda s: {'userid': s.user.userid, 'comment': s.comment.encode('Shift-JIS'), 'color': random.choice(COLOR_LIST), 'speed': random.choice(SPEED_LIST)}, steps)
-        self.write_response_template({'user': user, 'comments': comments})
+        return random.choice(SPEED_LIST)
 
 application = webapp.WSGIApplication([
   ('/', SignupPage),

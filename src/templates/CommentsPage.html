@@ -5,8 +5,8 @@
 </head>
 <body>
 <h1>みんなのコメント</h1>
-{% for c in comments %}
-<font color="{{c.color}}"><marquee scrollamount="{{c.speed}}" loop="-1">{{c.comment}}-{{c.userid}}</marquee></font>
+{% for step in steps %}
+<font color="{{self.random_color}}"><marquee scrollamount="{{self.random_speed}}" loop="-1">{{step.getSjisComment}}-{{step.user.userid}}</marquee></font>
 {% endfor %}
 <hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
