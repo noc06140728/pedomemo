@@ -1,0 +1,295 @@
+<html>
+<head>
+<title>pedomemo - レポート</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+		<style type="text/css">
+			table, td, th {
+				margin: 0mm;
+				font-size: 2.6mm;
+				border: 0.1mm black solid;
+				border-collapse: collapse;
+			}
+			table {
+				width: 10cm;
+				padding: 0mm;
+				height: 15.3cm;
+			}
+			th {
+				background-color: #CCEEFF;
+				padding: 0mm 0.5mm 0mm 0mm ;
+			}
+			th.month {
+				background-color: #FFFFFF;
+				text-align: center;
+				font-size: 4.6mm;
+			}
+			th.date { width: 5mm; text-align: center;}
+			th.steps { width: 21mm; text-align: center; }
+			th.sum { text-align: center; }
+			td { padding: 0mm 0.5mm 0mm 0mm; }
+			td.date { width: 5mm; text-align: center; background-color: #CCEEFF; }
+			td.steps { width: 21mm; text-align: right; }
+			td.sum { text-align: right; }
+			td.sumlabel { text-align: center; background-color: #CCEEFF; }
+		</style>
+</head>
+<body>
+<h1><font color="#668000">pedo</font><font color="#d45500">memo</font></h1>
+<div>{{user.userid|escape}} さんの記録です。</div>
+<div>下の表を印刷したものを、切って張って、提出しましょう！</div>
+<hr/>
+<table>
+	<tr><th class="month" colspan="3">10月</th><th class="month" colspan="3">11月</th></tr>
+	<tr><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th></tr>
+	<tr>
+		<td class="date">1</td>
+		<td class="steps">{{report.1001.steps}}</td>
+		<td class="sum">{{report.1001.sum}}</td>
+		<td class="date">1</td>
+		<td class="steps">{{report.1101.steps}}</td>
+		<td class="sum">{{report.1101.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">2</td>
+		<td class="steps">{{report.1002.steps}}</td>
+		<td class="sum">{{report.1002.sum}}</td>
+		<td class="date">2</td>
+		<td class="steps">{{report.1102.steps}}</td>
+		<td class="sum">{{report.1102.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">3</td>
+		<td class="steps">{{report.1003.steps}}</td>
+		<td class="sum">{{report.1003.sum}}</td>
+		<td class="date">3</td>
+		<td class="steps">{{report.1103.steps}}</td>
+		<td class="sum">{{report.1103.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">4</td>
+		<td class="steps">{{report.1004.steps}}</td>
+		<td class="sum">{{report.1004.sum}}</td>
+		<td class="date">4</td>
+		<td class="steps">{{report.1104.steps}}</td>
+		<td class="sum">{{report.1104.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">5</td>
+		<td class="steps">{{report.1005.steps}}</td>
+		<td class="sum">{{report.1005.sum}}</td>
+		<td class="date">5</td>
+		<td class="steps">{{report.1105.steps}}</td>
+		<td class="sum">{{report.1105.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">6</td>
+		<td class="steps">{{report.1006.steps}}</td>
+		<td class="sum">{{report.1006.sum}}</td>
+		<td class="date">6</td>
+		<td class="steps">{{report.1106.steps}}</td>
+		<td class="sum">{{report.1106.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">7</td>
+		<td class="steps">{{report.1007.steps}}</td>
+		<td class="sum">{{report.1007.sum}}</td>
+		<td class="date">7</td>
+		<td class="steps">{{report.1107.steps}}</td>
+		<td class="sum">{{report.1107.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">8</td>
+		<td class="steps">{{report.1008.steps}}</td>
+		<td class="sum">{{report.1008.sum}}</td>
+		<td class="date">8</td>
+		<td class="steps">{{report.1108.steps}}</td>
+		<td class="sum">{{report.1108.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">9</td>
+		<td class="steps">{{report.1009.steps}}</td>
+		<td class="sum">{{report.1009.sum}}</td>
+		<td class="date">9</td>
+		<td class="steps">{{report.1109.steps}}</td>
+		<td class="sum">{{report.1109.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">10</td>
+		<td class="steps">{{report.1010.steps}}</td>
+		<td class="sum">{{report.1010.sum}}</td>
+		<td class="date">10</td>
+		<td class="steps">{{report.1110.steps}}</td>
+		<td class="sum">{{report.1110.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">11</td>
+		<td class="steps">{{report.1011.steps}}</td>
+		<td class="sum">{{report.1011.sum}}</td>
+		<td class="date">11</td>
+		<td class="steps">{{report.1111.steps}}</td>
+		<td class="sum">{{report.1111.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">12</td>
+		<td class="steps">{{report.1012.steps}}</td>
+		<td class="sum">{{report.1012.sum}}</td>
+		<td class="date">12</td>
+		<td class="steps">{{report.1112.steps}}</td>
+		<td class="sum">{{report.1112.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">13</td>
+		<td class="steps">{{report.1013.steps}}</td>
+		<td class="sum">{{report.1013.sum}}</td>
+		<td class="date">13</td>
+		<td class="steps">{{report.1113.steps}}</td>
+		<td class="sum">{{report.1113.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">14</td>
+		<td class="steps">{{report.1014.steps}}</td>
+		<td class="sum">{{report.1014.sum}}</td>
+		<td class="date">14</td>
+		<td class="steps">{{report.1114.steps}}</td>
+		<td class="sum">{{report.1114.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">15</td>
+		<td class="steps">{{report.1015.steps}}</td>
+		<td class="sum">{{report.1015.sum}}</td>
+		<td class="date">15</td>
+		<td class="steps">{{report.1115.steps}}</td>
+		<td class="sum">{{report.1115.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">16</td>
+		<td class="steps">{{report.1016.steps}}</td>
+		<td class="sum">{{report.1016.sum}}</td>
+		<td class="date">16</td>
+		<td class="steps">{{report.1116.steps}}</td>
+		<td class="sum">{{report.1116.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">17</td>
+		<td class="steps">{{report.1017.steps}}</td>
+		<td class="sum">{{report.1017.sum}}</td>
+		<td class="date">17</td>
+		<td class="steps">{{report.1117.steps}}</td>
+		<td class="sum">{{report.1117.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">18</td>
+		<td class="steps">{{report.1018.steps}}</td>
+		<td class="sum">{{report.1018.sum}}</td>
+		<td class="date">18</td>
+		<td class="steps">{{report.1118.steps}}</td>
+		<td class="sum">{{report.1118.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">19</td>
+		<td class="steps">{{report.1019.steps}}</td>
+		<td class="sum">{{report.1019.sum}}</td>
+		<td class="date">19</td>
+		<td class="steps">{{report.1119.steps}}</td>
+		<td class="sum">{{report.1119.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">20</td>
+		<td class="steps">{{report.1020.steps}}</td>
+		<td class="sum">{{report.1020.sum}}</td>
+		<td class="date">20</td>
+		<td class="steps">{{report.1120.steps}}</td>
+		<td class="sum">{{report.1120.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">21</td>
+		<td class="steps">{{report.1021.steps}}</td>
+		<td class="sum">{{report.1021.sum}}</td>
+		<td class="date">21</td>
+		<td class="steps">{{report.1121.steps}}</td>
+		<td class="sum">{{report.1121.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">22</td>
+		<td class="steps">{{report.1022.steps}}</td>
+		<td class="sum">{{report.1022.sum}}</td>
+		<td class="date">22</td>
+		<td class="steps">{{report.1122.steps}}</td>
+		<td class="sum">{{report.1122.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">23</td>
+		<td class="steps">{{report.1023.steps}}</td>
+		<td class="sum">{{report.1023.sum}}</td>
+		<td class="date">23</td>
+		<td class="steps">{{report.1123.steps}}</td>
+		<td class="sum">{{report.1123.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">24</td>
+		<td class="steps">{{report.1024.steps}}</td>
+		<td class="sum">{{report.1024.sum}}</td>
+		<td class="date">24</td>
+		<td class="steps">{{report.1124.steps}}</td>
+		<td class="sum">{{report.1124.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">25</td>
+		<td class="steps">{{report.1025.steps}}</td>
+		<td class="sum">{{report.1025.sum}}</td>
+		<td class="date">25</td>
+		<td class="steps">{{report.1125.steps}}</td>
+		<td class="sum">{{report.1125.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">26</td>
+		<td class="steps">{{report.1026.steps}}</td>
+		<td class="sum">{{report.1026.sum}}</td>
+		<td class="date">26</td>
+		<td class="steps">{{report.1126.steps}}</td>
+		<td class="sum">{{report.1126.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">27</td>
+		<td class="steps">{{report.1027.steps}}</td>
+		<td class="sum">{{report.1027.sum}}</td>
+		<td class="date">27</td>
+		<td class="steps">{{report.1127.steps}}</td>
+		<td class="sum">{{report.1127.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">28</td>
+		<td class="steps">{{report.1028.steps}}</td>
+		<td class="sum">{{report.1028.sum}}</td>
+		<td class="date">28</td>
+		<td class="steps">{{report.1128.steps}}</td>
+		<td class="sum">{{report.1128.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">29</td>
+		<td class="steps">{{report.1029.steps}}</td>
+		<td class="sum">{{report.1029.sum}}</td>
+		<td class="date">29</td>
+		<td class="steps">{{report.1129.steps}}</td>
+		<td class="sum">{{report.1129.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">30</td>
+		<td class="steps">{{report.1030.steps}}</td>
+		<td class="sum">{{report.1030.sum}}</td>
+		<td class="date">30</td>
+		<td class="steps">{{report.1130.steps}}</td>
+		<td class="sum">{{report.1130.sum}}</td>
+	</tr>
+	<tr>
+		<td class="date">31</td>
+		<td class="steps">{{report.1031.steps}}</td>
+		<td class="sum">{{report.1031.sum}}</td>
+		<td class="sumlabel" colspan="2">10月,11月の合計</td>
+		<td class="sum">{{report.1130.sum}}</td>
+	</tr>
+</table>
+<hr/>
+<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+</body>
+</html>
