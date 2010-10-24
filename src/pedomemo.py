@@ -73,7 +73,7 @@ class User(db.Model):
         return StepRecord.gql('WHERE user=:1 AND date=:2', self, date).get()
 
     def getStepRecords(self, term):
-        return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3', self, term.start, term.end)
+        return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3 ORDER BY date', self, term.start, term.end)
 
     def getStepSummary(self, term):
         memkey = '%s:%s' % (self.userid, term)
@@ -113,6 +113,10 @@ class Term:
 
     def __str__(self):
         return '%s~%s' % (self.start, self.end)
+
+    @classmethod
+    def getCampaignTerm(cls):
+        return Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30))
 
 class RankItem:
     def __init__(self, rank, user, steps):
@@ -243,6 +247,17 @@ class MyProfilePage(BaseHandler):
         user.put()
         self.redirect('/menu?key=%s' % user.accesskey)
 
+class ReportPage(BaseHandler):
+    def get(self):
+        user = User.getByAccessKey(self.request.get('key'))
+        report = {}
+        sum = 0
+        steps = user.getStepRecords(Term.getCampaignTerm())
+        for step in steps:
+            sum += step.steps
+            report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': sum}
+        self.write_response_template({'user': user, 'report': report})
+
 application = webapp.WSGIApplication([
   ('/', SignupPage),
   ('/menu', MenuPage),
@@ -250,7 +265,8 @@ application = webapp.WSGIApplication([
   ('/history', HistoryPage),
   ('/ranking', RankingPage),
   ('/profile', ProfilePage),
-  ('/myprofile', MyProfilePage)
+  ('/myprofile', MyProfilePage),
+  ('/report', ReportPage)
 ], debug=False)
 
 
