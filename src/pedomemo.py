@@ -90,9 +90,6 @@ class User(db.Model):
             memcache.set(memkey, steps, namespace='steps')
         return steps
 
-    def getSjisProfile(self):
-        return self.profile.encode('SHIFT_JIS')
-
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
     date = db.DateProperty()
@@ -108,9 +105,6 @@ class StepRecord(db.Model):
                 records.append(record)
             if len(records) >= count: break
         return records
-
-    def getSjisComment(self):
-        return self.comment.encode('SHIFT_JIS')
 
 class Term:
     def __init__(self, start=None, end=None):
@@ -168,7 +162,7 @@ class BaseHandler(webapp.RequestHandler):
         else:
             self.response.headers['Content-Type'] = 'text/html; charset=Shift_JIS'
             path = os.path.join(os.path.dirname(__file__), 'templates', 'ErrorPage.html')
-            error_message = exception.args[0].encode('Shift_JIS')
+            error_message = exception.args[0]
             self.response.out.write(template.render(path, {'error_message': error_message}))
 
 class SignupPage(BaseHandler):
