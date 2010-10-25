@@ -121,6 +121,10 @@ class Term:
     def __str__(self):
         return '%s~%s' % (self.start, self.end)
 
+    @classmethod
+    def getCampaignTerm(cls):
+        return Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30))
+
 class RankItem:
     def __init__(self, rank, user, steps):
         self.rank = rank
@@ -222,7 +226,7 @@ class HistoryPage(BaseHandler):
         monthly_term = Term()
         monthly_steps = user.getStepSummary(monthly_term)
         monthly_rank = Ranking(monthly_term).getRank(user)
-        campaign_term = Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30)) #TODO
+        campaign_term = Term.getCampaignTerm()
         campaign_steps = user.getStepSummary(campaign_term)
         campaign_rank = Ranking(campaign_term).getRank(user)
         users_count = User.all().count()
