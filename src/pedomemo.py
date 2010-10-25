@@ -256,17 +256,9 @@ class CommentsPage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
         steps = StepRecord.getRecentStepRecords(10)
-        self.write_response_template({'user': user, 'steps': steps, 'self': self})
-
-    def random_color(self):
-        import random
         COLOR_LIST = ["#d43333", "#d45500", "#556680", "#668000"]
-        return random.choice(COLOR_LIST)
-
-    def random_speed(self):
-        import random
         SPEED_LIST = [2, 3, 4, 5]
-        return random.choice(SPEED_LIST)
+        self.write_response_template({'user': user, 'steps': steps, 'colors': COLOR_LIST, 'speeds': SPEED_LIST})
 
 application = webapp.WSGIApplication([
   ('/', SignupPage),
