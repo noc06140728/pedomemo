@@ -7,6 +7,7 @@
 <h1>どれくらい歩いた？</h1>
 <div>月間累計: {{monthly_steps}}歩({{monthly_rank}}位/{{users_count}}人)</div>
 <div>期間累計: {{campaign_steps}}歩({{campaign_rank}}位/{{users_count}}人)</div>
+<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
 {% for record in records %}
 <div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}歩</div>
 {% endfor %}
