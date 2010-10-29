@@ -6,7 +6,7 @@
 <body>
 <h1>プロフィール</h1>
 <div>{{profile_user.userid|escape}} さんのプロフィール</div>
-<div>{{user.getSjisProfile|escape}}</div>
+<div>{{user.profile|sjis|escape}}</div>
 <hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
 </body>

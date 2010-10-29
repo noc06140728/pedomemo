@@ -90,9 +90,6 @@ class User(db.Model):
             memcache.set(memkey, steps, namespace='steps')
         return steps
 
-    def getSjisProfile(self):
-        return self.profile.encode('SHIFT_JIS')
-
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
     date = db.DateProperty()
@@ -108,9 +105,6 @@ class StepRecord(db.Model):
                 records.append(record)
             if len(records) >= count: break
         return records
-
-    def getSjisComment(self):
-        return self.comment.encode('SHIFT_JIS')
 
 class Term:
     def __init__(self, start=None, end=None):
@@ -168,7 +162,7 @@ class BaseHandler(webapp.RequestHandler):
         else:
             self.response.headers['Content-Type'] = 'text/html; charset=Shift_JIS'
             path = os.path.join(os.path.dirname(__file__), 'templates', 'ErrorPage.html')
-            error_message = exception.args[0].encode('Shift_JIS')
+            error_message = exception.args[0]
             self.response.out.write(template.render(path, {'error_message': error_message}))
 
 class SignupPage(BaseHandler):
@@ -226,7 +220,7 @@ class HistoryPage(BaseHandler):
         monthly_term = Term()
         monthly_steps = user.getStepSummary(monthly_term)
         monthly_rank = Ranking(monthly_term).getRank(user)
-        campaign_term = Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30)) #TODO
+        campaign_term = Term.getCampaignTerm()
         campaign_steps = user.getStepSummary(campaign_term)
         campaign_rank = Ranking(campaign_term).getRank(user)
         users_count = User.all().count()
@@ -260,17 +254,9 @@ class CommentsPage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
         steps = StepRecord.getRecentStepRecords(10)
-        self.write_response_template({'user': user, 'steps': steps, 'self': self})
-
-    def random_color(self):
-        import random
         COLOR_LIST = ["#d43333", "#d45500", "#556680", "#668000"]
-        return random.choice(COLOR_LIST)
-
-    def random_speed(self):
-        import random
         SPEED_LIST = [2, 3, 4, 5]
-        return random.choice(SPEED_LIST)
+        self.write_response_template({'user': user, 'steps': steps, 'colors': COLOR_LIST, 'speeds': SPEED_LIST})
 
 class ReportPage(BaseHandler):
     def get(self):
