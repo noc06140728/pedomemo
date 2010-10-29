@@ -6,7 +6,7 @@
 <body>
 <h1>みんなのコメント</h1>
 {% for step in steps %}
-<font color="{{colors|random}}"><marquee scrollamount="{{speeds|random}}" loop="-1">{{step.comment|sjis|escape}}-{{step.user.userid|escape}}</marquee></font>
+<font color="{{colors|random}}"><marquee scrollamount="{{speeds|random}}" loop="-1">{{step.comment|sjis|escape}}-{{step.user.userid|escape}}({{step.date|date:"m/d"}})</marquee></font>
 {% endfor %}
 <hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
