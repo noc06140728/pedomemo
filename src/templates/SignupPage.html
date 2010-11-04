@@ -10,7 +10,7 @@
 <div>pedomemoは、一日に歩いた歩数をメモしておくためのサイトです。(PEDOmeter's MEMO)</div>
 <form method="POST" action="/">
 <div>ユーザID:<input type="text" name="userid" istyle="3" mode="alphabet" maxlength="16"/></div>
-<div>プロフィール:<input type="text" name="profile" istyle="1" mode="hiragana" maxlength="64"/></div>
+<div>プロフィール:<input type="text" name="profile" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}128{% else %}64{% endif %}"/></div>
 <div><input type="submit" value="登録"/></div>
 </form>　　
 </body>

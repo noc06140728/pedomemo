@@ -167,7 +167,10 @@ class BaseHandler(webapp.RequestHandler):
 
 class SignupPage(BaseHandler):
     def get(self):
-        self.write_response_template({})
+        import useragent_m
+        userAgent = useragent_m.UserAgent()
+        userAgent.setUserAgent(self.request.headers['User-Agent'])
+        self.write_response_template({'userAgent': userAgent})
 
     def post(self):
         self.request.charset = 'Shift_JIS'
@@ -244,8 +247,11 @@ class ProfilePage(BaseHandler):
 
 class MyProfilePage(BaseHandler):
     def get(self):
+        import useragent_m
+        userAgent = useragent_m.UserAgent()
+        userAgent.setUserAgent(self.request.headers['User-Agent'])
         user = User.getByAccessKey(self.request.get('key'))
-        self.write_response_template({'user': user})
+        self.write_response_template({'user': user, 'userAgent': userAgent})
 
     def post(self):
         self.request.charset = 'Shift_JIS'
