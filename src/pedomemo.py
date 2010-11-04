@@ -188,6 +188,9 @@ class MenuPage(BaseHandler):
     
 class InputPage(BaseHandler):
     def get(self):
+        import useragent_m
+        userAgent = useragent_m.UserAgent()
+        userAgent.setUserAgent(self.request.headers['User-Agent'])
         user = User.getByAccessKey(self.request.get('key'))
         strdate = self.request.get('date')
         date = parseDate(strdate) if strdate else datetime.date.today()
@@ -196,7 +199,7 @@ class InputPage(BaseHandler):
             record = StepRecord()
             record.date = date
             record.comment = ''
-        self.write_response_template({'user': user, 'record': record})
+        self.write_response_template({'user': user, 'record': record, 'userAgent': userAgent})
 
     def post(self):
         self.request.charset = 'Shift_JIS'
