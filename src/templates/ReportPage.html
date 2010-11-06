@@ -2,6 +2,7 @@
 <head>
 <title>pedomemo - レポート</title>
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+{% ifequal userAgent.isMobile() false %}
 <style type="text/css">
 <!--
 	table, td, th {
@@ -16,7 +17,7 @@
 		height: 15.3cm;
 	}
 	th {
-		background-color: #FFDDCC;
+		background-color: #EEDD88;
 		padding: 0mm 0.5mm 0mm 0mm;
 	}
 	th.month {
@@ -28,15 +29,21 @@
 	th.steps { width: 21mm; text-align: center; }
 	th.sum { text-align: center; }
 	td { padding: 0mm 0.5mm 0mm 0mm; }
-	td.date { width: 5mm; text-align: center; background-color: #FFDDCC; }
+	td.date { width: 5mm; text-align: center; background-color: #EEDD88; }
 	td.steps { width: 21mm; text-align: right; }
 	td.sum { text-align: right; }
-	td.sumlabel { text-align: center; background-color: #FFDDCC; }
+	td.sumlabel { text-align: center; background-color: #EEDD88; }
 -->
 </style>
+{% endifequal %}
 </head>
 <body>
 <h1><font color="#668000">pedo</font><font color="#d45500">memo</font></h1>
+{% if userAgent.isMobile %}
+<div>このページは、PC専用のページです。携帯端末では正常に表示できない場合があります。あなたのメニュー画面のURLをPCへメールで転送してください。メールの宛先は、自分のPCのメールアドレスを指定してください。</div>
+<div><font color="orange">[注意]このメールは、他の人のメールアドレスへ送信しないでください。</font></div>
+<a href="mailto:?subject=pedomemo&body=http://hardwave-pedomemo.appspot.com/menu?key={{user.accesskey|urlencode}}">メールで転送</a>
+{% else %}
 <div><font color="orange">[注意]このページは、PC専用のページです。携帯端末では正常に表示できない場合があります。</font></div>
 <div>{{user.userid|escape}} さんのキャンペーン期間の記録です。</div>
 <div>下の表を印刷したものを外枠で切りとって、記録表に張って提出しましょう！</div>
@@ -292,6 +299,7 @@
 		<td class="sum">{{report.1130.sum|commafmt}}</td>
 	</tr>
 </table>
+{% endif %}
 <hr/>
 <div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
 </body>
