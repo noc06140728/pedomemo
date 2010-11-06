@@ -32,4 +32,6 @@ class UserAgent:
     def isKDDI(self):
         return self.carrier == "KDDI"
 
+    def isMobile(self):
+        return (isDocomo(self) or isSoftBank(self) or isKDDI(self))
 
