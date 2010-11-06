@@ -270,6 +270,9 @@ class CommentsPage(BaseHandler):
 
 class ReportPage(BaseHandler):
     def get(self):
+        import useragent_m
+        userAgent = useragent_m.UserAgent()
+        userAgent.setUserAgent(self.request.headers['User-Agent'])
         user = User.getByAccessKey(self.request.get('key'))
         report = {}
         sum = 0
@@ -277,7 +280,7 @@ class ReportPage(BaseHandler):
         for step in steps:
             sum += step.steps
             report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': sum}
-        self.write_response_template({'user': user, 'report': report})
+        self.write_response_template({'user': user, 'report': report, 'userAgent': userAgent})
 
 application = webapp.WSGIApplication([
   ('/', SignupPage),
