@@ -236,8 +236,13 @@ class HistoryPage(BaseHandler):
 class RankingPage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
-        ranking = Ranking(Term())
-        self.write_response_template({'user': user, 'ranking': ranking})
+        if self.request.get('term') == 'campaign':
+            ranking = Ranking(Term.getCampaignTerm())
+            isCampaignTerm = True
+        else:
+            ranking = Ranking(Term())
+            isCampaignTerm = False
+        self.write_response_template({'user': user, 'ranking': ranking, 'isCampaignTerm': isCampaignTerm})
 
 class ProfilePage(BaseHandler):
     def get(self):

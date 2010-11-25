@@ -7,14 +7,14 @@
 <h1><font color="#668000">pedo</font><font color="#d45500">memo</font></h1>
 <h2>[beta版]</h2>
 <div>ようこそ {{user.userid|escape}} さん。</div>
-<marquee scrollamount="3" loop="-1" bgcolor="#ffddaa">レポートの印刷(PC専用)ができるようになりました。</marquee>
+<marquee scrollamount="3" loop="-1" bgcolor="#ffddaa">キャンペーン期間のランク表示ができるようになりました。</marquee>
 <ul>
 <li><a href="/input?key={{user.accesskey|urlencode}}">歩数入力</a></li>
 <li><a href="/history?key={{user.accesskey|urlencode}}">履歴表示</a></li>
-<li><a href="/ranking?key={{user.accesskey|urlencode}}">ランク表示</a></li>
+<li><a href="/ranking?key={{user.accesskey|urlencode}}">ランク表示</a><font color="red">[NEW]</font></li>
 <li><a href="/myprofile?key={{user.accesskey|urlencode}}&userid={{user.userid|escape}}">マイプロフィール</a></li>
 <li><a href="/comments?key={{user.accesskey|urlencode}}">みんなのコメント</a></li>
-<li><a href="/report?key={{user.accesskey|urlencode}}">レポート</a><font color="red">[NEW]</font></li>
+<li><a href="/report?key={{user.accesskey|urlencode}}">レポート</a></li>
 </ul>
 <hr/>
 <div><font color="orange">このページをブックマーク登録してください。</font></div>
