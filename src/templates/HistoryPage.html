@@ -1,10 +1,19 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>pedomemo - 履歴表示</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 </head>
 <body>
+<div data-role="page" data-add-back-btn="true">
+<div data-role="header">
 <h1>どれくらい歩いた？</h1>
+</div><!-- /header -->
+<div data-role="content">	
 <div>月間累計: {{monthly_steps}}歩({{monthly_rank}}位/{{users_count}}人)</div>
 <div>期間累計: {{campaign_steps}}歩({{campaign_rank}}位/{{users_count}}人)</div>
 <div>期間平均: {{average}}歩/日</div>
@@ -12,7 +21,11 @@
 {% for record in records %}
 <div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}歩</div>
 {% endfor %}
+</div><!-- /content -->
 <hr/>
-<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+<div data-role="footer" class="ui-bar">
+<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l">メニューへ</a>
+</div><!-- /footer -->
+</div><!-- /page -->
 </body>
 </html>
