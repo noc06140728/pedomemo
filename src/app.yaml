@@ -8,6 +8,9 @@ handlers:
   static_files: images/favicon.ico
   upload: images/favicon.ico
 
+- url: /js
+  static_dir: js
+
 - url: /.*
   script: pedomemo.py
 
