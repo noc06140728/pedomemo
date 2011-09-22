@@ -8,6 +8,10 @@ handlers:
   static_files: images/favicon.ico
   upload: images/favicon.ico
 
+- url: /admin/.*
+  script: admin.py
+  login: admin
+
 - url: /.*
   script: pedomemo.py
 

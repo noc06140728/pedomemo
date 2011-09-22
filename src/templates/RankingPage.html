@@ -10,8 +10,8 @@
 {% else %}
 <div><a href="/ranking?key={{user.accesskey|urlencode}}&term=campaign">ŠúŠÔƒ‰ƒ“ƒN‚Ö</a></div>
 {% endif %}
-<div>{{ranking.term.start|date:"Y/m/d"}}-{{ranking.term.end|date:"Y/m/d"}}</div>
-{% for item in ranking.rank_list %}
+<div>{{term.start|date:"Y/m/d"}}-{{term.end|date:"Y/m/d"}}</div>
+{% for item in rank_list %}
 <div>[{{item.rank}}ˆÊ]<a href="/profile?key={{user.accesskey|urlencode}}&userid={{item.user.userid|escape}}">{{item.user.userid|escape}}</a>: {{item.steps}}•à</div>
 {% endfor %}
 <hr/>

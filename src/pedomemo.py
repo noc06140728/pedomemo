@@ -80,15 +80,13 @@ class User(db.Model):
     def getStepRecords(self, term):
         return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3 ORDER BY date', self, term.start, term.end)
 
-    def getStepSummary(self, term):
-        memkey = '%s:%s' % (self.userid, term)
-        steps = memcache.get(memkey, namespace='steps')
-        if steps is None:
-            steps = 0
-            for record in self.getStepRecords(term):
-                steps += record.steps
-            memcache.set(memkey, steps, namespace='steps')
-        return steps
+    def getSteps(self, term):
+        sum = StepSummary.getSummaryStep(self, term)
+        return sum.steps if sum is not None else None
+
+    def getRank(self, term):
+        sum = StepSummary.getSummaryStep(self, term)
+        return sum.rank if sum is not None else None
 
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
@@ -98,13 +96,60 @@ class StepRecord(db.Model):
     entrydate = db.DateTimeProperty(auto_now_add=True)
 
     @classmethod
-    def getRecentStepRecords(self, count):
+    def getRecentStepRecords(cls, count):
         records = []
         for record in StepRecord.gql('ORDER BY entrydate DESC'):
             if (record.comment <> '') and (record.comment <> 'TODO'):
                 records.append(record)
             if len(records) >= count: break
         return records
+
+class StepSummary(db.Model):
+    user = db.ReferenceProperty(User)
+    start_date = db.DateProperty()
+    end_date = db.DateProperty()
+    steps = db.IntegerProperty()
+    rank = db.IntegerProperty()
+    entrydate = db.DateTimeProperty(auto_now_add=True)
+
+    @classmethod
+    def countStepRecords(cls, term):
+        count_steps = {}
+        for record in StepRecord.gql('WHERE date>=:1 AND date<=:2', term.start, term.end):
+            if count_steps.has_key(record.user.userid):
+                count_steps[record.user.userid] += record.steps
+            else:
+                count_steps[record.user.userid] = record.steps
+
+        for userid, steps in count_steps.items():
+            sum = StepSummary.get_or_insert('%s/%s' % (userid, term))
+            sum.user = User.getUser(userid)
+            sum.start_date = term.start
+            sum.end_date = term.end
+            sum.steps = steps
+            sum.put()
+
+        query = StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
+                                term.start, term.end)
+        rank = 1
+        rank_index = 1
+        pre_steps = 0
+        for sum in query:
+            if pre_steps <> sum.steps:
+                rank = rank_index
+            sum.rank = rank
+            sum.put()
+            pre_steps = steps
+            rank_index += 1
+
+    @classmethod
+    def getSummaryStep(cls, user, term):
+        return StepSummary.get_by_key_name('%s/%s' % (user.userid, term))
+
+    @classmethod
+    def getRankList(cls, term):
+        return StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
+                               term.start, term.end)
 
 class Term:
     def __init__(self, start=None, end=None):
@@ -117,38 +162,7 @@ class Term:
 
     @classmethod
     def getCampaignTerm(cls):
-        return Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30))
-
-class RankItem:
-    def __init__(self, rank, user, steps):
-        self.rank = rank
-        self.user = user
-        self.steps = steps
-
-class Ranking:
-    def __init__(self, term):
-        self.term = term
-        memkey = str(term)
-        self.rank_list = memcache.get(memkey, namespace='rank_list')
-        if self.rank_list is None:
-            self.rank_list = []
-            rank = 1
-            rank_index = 1
-            pre_steps = 0
-            for user in sorted(User.all(), key=lambda u: u.getStepSummary(term), reverse=True):
-                steps = user.getStepSummary(term)
-                if pre_steps <> steps:
-                    rank = rank_index
-                self.rank_list.append(RankItem(rank, user, steps))
-                pre_steps = steps
-                rank_index += 1
-            memcache.set(memkey, self.rank_list, namespace='rank_list')
-
-    def getRank(self, user):
-        for item in self.rank_list:
-            if item.user.userid == user.userid:
-               return item.rank
-        return None
+        return Term(datetime.date(2011, 10, 1), datetime.date(2011, 11, 30))
 
 class BaseHandler(webapp.RequestHandler):
     def write_response_template(self, values):
@@ -224,11 +238,11 @@ class HistoryPage(BaseHandler):
         user = User.getByAccessKey(self.request.get('key'))
         records = StepRecord.gql("WHERE user=:user ORDER BY date DESC", user=user).fetch(30)
         monthly_term = Term()
-        monthly_steps = user.getStepSummary(monthly_term)
-        monthly_rank = Ranking(monthly_term).getRank(user)
+        monthly_steps = user.getSteps(monthly_term)
+        monthly_rank = user.getRank(monthly_term)
         campaign_term = Term.getCampaignTerm()
-        campaign_steps = user.getStepSummary(campaign_term)
-        campaign_rank = Ranking(campaign_term).getRank(user)
+        campaign_steps = user.getSteps(campaign_term)
+        campaign_rank = user.getRank(campaign_term)
         users_count = User.all().count()
         step_count = user.getStepRecords(campaign_term).count()
         self.write_response_template({'user': user, 'records': records, 'monthly_steps': monthly_steps, 'monthly_rank': monthly_rank, 'campaign_steps': campaign_steps, 'campaign_rank': campaign_rank, 'users_count': users_count, 'average': campaign_steps/step_count})
@@ -237,12 +251,14 @@ class RankingPage(BaseHandler):
     def get(self):
         user = User.getByAccessKey(self.request.get('key'))
         if self.request.get('term') == 'campaign':
-            ranking = Ranking(Term.getCampaignTerm())
+            term = Term.getCampaignTerm()
             isCampaignTerm = True
         else:
-            ranking = Ranking(Term())
+            term = Term()
             isCampaignTerm = False
-        self.write_response_template({'user': user, 'ranking': ranking, 'isCampaignTerm': isCampaignTerm})
+        rank_list = StepSummary.getRankList(term)
+        self.write_response_template({'user': user, 'term': term, 'rank_list': rank_list,
+                                      'isCampaignTerm': isCampaignTerm})
 
 class ProfilePage(BaseHandler):
     def get(self):
