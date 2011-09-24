@@ -9,11 +9,17 @@ from pedomemo import *
 
 class CountStepsWorker(webapp.RequestHandler):
     def get(self):
-        import logging
-        logging.info('test.')
-        StepSummary.countStepRecords(Term())
-        StepSummary.countStepRecords(Term.getCampaignTerm())
-        self.response.out.write('fin.')
+        start_date = parseDate(self.request.get('start'))
+        end_date = parseDate(self.request.get('end'))
+        StepSummary.countStepRecords(Term(start_date, end_date))
+#        ym = self.request.get('ym')
+#        if len(ym) <> 6:
+#            raise ApplicationError('Invarid specified year-month(ym).')
+#        year = ym[0:4]
+#        month = ym[4:6]
+#        StepSummary.countStepRecords(Term(year, month))
+#        StepSummary.countStepRecords(Term.getCampaignTerm(year))
+        self.response.out.write('Calculate steps complate.')
 
 application = webapp.WSGIApplication([
   ('/admin/count', CountStepsWorker)

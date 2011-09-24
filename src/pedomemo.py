@@ -151,18 +151,53 @@ class StepSummary(db.Model):
         return StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
                                term.start, term.end)
 
+class CalculationTask(db.Model):
+    start_date = db.DateProperty()
+    end_date = db.DateProperty()
+    entrydate = db.DateTimeProperty(auto_now_add=True)
+
+    @classmethod
+    def putTask(cls, term):
+        task = CalculationTask.get_or_insert(str(term))
+        task.start_date = term.start
+        task.end_date = term.end
+        task.put()
+
+    @classmethod
+    def registTask(cls, date):
+        term = Term.getTerm(date.year, date.month)
+        self.putTask(term)
+
+        if Term.inCampaignTerm(date):
+            term = Term.getCampainTerm(date.year)
+            self.putTask(term)
+
 class Term:
     def __init__(self, start=None, end=None):
         today = datetime.date.today()
         self.start = start if start else datetime.date(today.year, today.month, 1)
-        self.end = end if end else getLastDate(today)
+        self.end = end if end else getLastDate(self.start)
 
     def __str__(self):
         return '%s~%s' % (self.start, self.end)
 
     @classmethod
-    def getCampaignTerm(cls):
-        return Term(datetime.date(2011, 10, 1), datetime.date(2011, 11, 30))
+    def getCampaignTerm(cls, year=None):
+        if year is None:
+            year = datetime.date.today().year
+        return Term(datetime.date(year, 10, 1), datetime.date(year, 11, 30))
+
+    @classmethod
+    def getTerm(cls, year, month):
+        if not(1 <= month <= 12):
+            raise ApplicationError('Invarid month.')
+        start = datetime.date(today.year, today.month, 1)
+        return Term(start, getLastDate(start))
+
+    @classmethod
+    def inCampaignTerm(cls, date):
+        term = self.getCampaignTerm(date.year)
+        return (term.start <= date <= term.end)
 
 class BaseHandler(webapp.RequestHandler):
     def write_response_template(self, values):
