@@ -1,0 +1,5 @@
+cron:
+- description: daily summary job
+  url: /admin/task
+  schedule: every 6 hours
+

@@ -10,7 +10,6 @@ import re
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
-from google.appengine.api import memcache
 
 webapp.template.register_template_library('customfilters_m')
 
@@ -78,7 +77,8 @@ class User(db.Model):
         return StepRecord.gql('WHERE user=:1 AND date=:2', self, date).get()
 
     def getStepRecords(self, term):
-        return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3 ORDER BY date', self, term.start, term.end)
+        return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3 ORDER BY date',
+                              self, term.start_date, term.end_date)
 
     def getSteps(self, term):
         sum = StepSummary.getSummaryStep(self, term)
@@ -115,7 +115,8 @@ class StepSummary(db.Model):
     @classmethod
     def countStepRecords(cls, term):
         count_steps = {}
-        for record in StepRecord.gql('WHERE date>=:1 AND date<=:2', term.start, term.end):
+        for record in StepRecord.gql('WHERE date>=:1 AND date<=:2',
+                                     term.start_date, term.end_date):
             if count_steps.has_key(record.user.userid):
                 count_steps[record.user.userid] += record.steps
             else:
@@ -124,13 +125,13 @@ class StepSummary(db.Model):
         for userid, steps in count_steps.items():
             sum = StepSummary.get_or_insert('%s/%s' % (userid, term))
             sum.user = User.getUser(userid)
-            sum.start_date = term.start
-            sum.end_date = term.end
+            sum.start_date = term.start_date
+            sum.end_date = term.end_date
             sum.steps = steps
             sum.put()
 
         query = StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
-                                term.start, term.end)
+                                term.start_date, term.end_date)
         rank = 1
         rank_index = 1
         pre_steps = 0
@@ -149,37 +150,37 @@ class StepSummary(db.Model):
     @classmethod
     def getRankList(cls, term):
         return StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
-                               term.start, term.end)
+                               term.start_date, term.end_date)
 
-class CalculationTask(db.Model):
+class CountTask(db.Model):
     start_date = db.DateProperty()
     end_date = db.DateProperty()
     entrydate = db.DateTimeProperty(auto_now_add=True)
 
     @classmethod
     def putTask(cls, term):
-        task = CalculationTask.get_or_insert(str(term))
-        task.start_date = term.start
-        task.end_date = term.end
+        task = CountTask.get_or_insert(str(term))
+        task.start_date = term.start_date
+        task.end_date = term.end_date
         task.put()
 
     @classmethod
     def registTask(cls, date):
         term = Term.getTerm(date.year, date.month)
-        self.putTask(term)
+        CountTask.putTask(term)
 
         if Term.inCampaignTerm(date):
-            term = Term.getCampainTerm(date.year)
-            self.putTask(term)
+            term = Term.getCampaignTerm(date.year)
+            CountTask.putTask(term)
 
 class Term:
-    def __init__(self, start=None, end=None):
+    def __init__(self, start_date=None, end_date=None):
         today = datetime.date.today()
-        self.start = start if start else datetime.date(today.year, today.month, 1)
-        self.end = end if end else getLastDate(self.start)
+        self.start_date = start_date if start_date else datetime.date(today.year, today.month, 1)
+        self.end_date = end_date if end_date else getLastDate(self.start_date)
 
     def __str__(self):
-        return '%s~%s' % (self.start, self.end)
+        return '%s~%s' % (self.start_date, self.end_date)
 
     @classmethod
     def getCampaignTerm(cls, year=None):
@@ -191,13 +192,13 @@ class Term:
     def getTerm(cls, year, month):
         if not(1 <= month <= 12):
             raise ApplicationError('Invarid month.')
-        start = datetime.date(today.year, today.month, 1)
-        return Term(start, getLastDate(start))
+        start_date = datetime.date(year, month, 1)
+        return Term(start_date, getLastDate(start_date))
 
     @classmethod
     def inCampaignTerm(cls, date):
-        term = self.getCampaignTerm(date.year)
-        return (term.start <= date <= term.end)
+        term = Term.getCampaignTerm(date.year)
+        return (term.start_date <= date <= term.end_date)
 
 class BaseHandler(webapp.RequestHandler):
     def write_response_template(self, values):
@@ -265,7 +266,7 @@ class InputPage(BaseHandler):
         record.steps = parseSteps(self.request.get('steps'))
         record.comment = parseComment(self.request.get('comment'))
         record.put()
-        memcache.flush_all()
+        CountTask.registTask(date)
         self.redirect('/history?key=%s' % user.accesskey)
 
 class HistoryPage(BaseHandler):

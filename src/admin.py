@@ -4,6 +4,7 @@
 import wsgiref.handlers
 
 from google.appengine.ext import webapp
+from google.appengine.api import taskqueue
 
 from pedomemo import *
 
@@ -12,17 +13,20 @@ class CountStepsWorker(webapp.RequestHandler):
         start_date = parseDate(self.request.get('start'))
         end_date = parseDate(self.request.get('end'))
         StepSummary.countStepRecords(Term(start_date, end_date))
-#        ym = self.request.get('ym')
-#        if len(ym) <> 6:
-#            raise ApplicationError('Invarid specified year-month(ym).')
-#        year = ym[0:4]
-#        month = ym[4:6]
-#        StepSummary.countStepRecords(Term(year, month))
-#        StepSummary.countStepRecords(Term.getCampaignTerm(year))
         self.response.out.write('Calculate steps complate.')
 
+class CountTaskWorker(webapp.RequestHandler):
+    def get(self):
+        for task in CountTask.all():
+            taskqueue.add(url='/admin/count', method='GET',
+                          params={'start': task.start_date.strftime('%Y%m%d'),
+                                  'end': task.end_date.strftime('%Y%m%d')})
+            task.delete()
+        self.response.out.write('Task added.')
+
 application = webapp.WSGIApplication([
-  ('/admin/count', CountStepsWorker)
+  ('/admin/count', CountStepsWorker),
+  ('/admin/task', CountTaskWorker)
 ], debug=False)
 
 
