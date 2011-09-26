@@ -281,7 +281,12 @@ class HistoryPage(BaseHandler):
         campaign_rank = user.getRank(campaign_term)
         users_count = User.all().count()
         step_count = user.getStepRecords(campaign_term).count()
-        self.write_response_template({'user': user, 'records': records, 'monthly_steps': monthly_steps, 'monthly_rank': monthly_rank, 'campaign_steps': campaign_steps, 'campaign_rank': campaign_rank, 'users_count': users_count, 'average': campaign_steps/step_count})
+        self.write_response_template({
+            'user': user, 'records': records,
+            'monthly_steps': monthly_steps, 'monthly_rank': monthly_rank,
+            'campaign_steps': campaign_steps, 'campaign_rank': campaign_rank,
+            'users_count': users_count,
+            'average': campaign_steps/step_count if step_count else 0})
 
 class RankingPage(BaseHandler):
     def get(self):
