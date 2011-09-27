@@ -1,10 +1,21 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>pedomemo - 歩数入力</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
+<meta charset="Shift_JIS"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="/js/mobile-config.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 </head>
 <body>
+<div data-role="page" data-add-back-btn="true">
+<div data-role="header">
 <h1>今日は何歩あるいた？</h1>
+</div><!-- /header -->
+<div data-role="content">	
 <form method="POST" action="/input">
 <div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
 <div>日付:<input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="9"/></div>
@@ -12,7 +23,11 @@
 <div>コメント:<input type="text" name="comment" value="{{record.comment|sjis|default:""}}" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}40{% else %}20{% endif %}"/></div>
 <div><input type="submit" value="登録"/></div>
 </form>
+</div><!-- /content -->
 <hr/>
-<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+<div data-role="footer" class="ui-bar">
+<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l">メニューへ</a>
+</div><!-- /footer -->
+</div><!-- /page -->
 </body>
 </html>

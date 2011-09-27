@@ -1,5 +1,5 @@
 application: hardwave-pedomemo
-version: 2
+version: 3
 runtime: python
 api_version: 1
 
@@ -11,6 +11,9 @@ handlers:
 - url: /admin/.*
   script: admin.py
   login: admin
+
+- url: /js
+  static_dir: js
 
 - url: /.*
   script: pedomemo.py
