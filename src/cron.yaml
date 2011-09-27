@@ -1,5 +1,5 @@
 cron:
-- description: daily summary job
+- description: count step summary job
   url: /admin/task
-  schedule: every 6 hours
+  schedule: every 1 hours
 
