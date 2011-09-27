@@ -17,12 +17,12 @@
 </div><!-- /header -->
 <div data-role="content">	
 <div>ようこそ {{user.userid|escape}} さん。</div>
-<marquee scrollamount="3" loop="-1" bgcolor="#ffddaa">キャンペーン期間のランク表示ができるようになりました。</marquee>
+<marquee scrollamount="3" loop="-1" bgcolor="#ffddaa">スマートフォン向けの表示に対応しました。</marquee>
 <ul data-role="listview" data-inset="true">
 <li data-role="list-divider">Menu</li> 
 <li><a href="/input?key={{user.accesskey|urlencode}}">歩数入力</a></li>
 <li><a href="/history?key={{user.accesskey|urlencode}}">履歴表示</a></li>
-<li><a href="/ranking?key={{user.accesskey|urlencode}}">ランク表示 <font color="red">[NEW]</font></a></li>
+<li><a href="/ranking?key={{user.accesskey|urlencode}}">ランク表示</a></li>
 <li><a href="/myprofile?key={{user.accesskey|urlencode}}&userid={{user.userid|escape}}">マイプロフィール</a></li>
 <li><a href="/comments?key={{user.accesskey|urlencode}}">みんなのコメント</a></li>
 <li><a href="/report?key={{user.accesskey|urlencode}}">レポート</a></li>
