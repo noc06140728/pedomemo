@@ -80,13 +80,8 @@ class User(db.Model):
         return StepRecord.gql('WHERE user=:1 AND date>=:2 AND date<=:3 ORDER BY date',
                               self, term.start_date, term.end_date)
 
-    def getSteps(self, term):
-        sum = StepSummary.getSummaryStep(self, term)
-        return sum.steps if sum is not None else None
-
-    def getRank(self, term):
-        sum = StepSummary.getSummaryStep(self, term)
-        return sum.rank if sum is not None else None
+    def getStepSummary(self, term):
+        return StepSummary.getSummaryStep(self, term)
 
 class StepRecord(db.Model):
     user = db.ReferenceProperty(User)
@@ -130,17 +125,15 @@ class StepSummary(db.Model):
             sum.steps = steps
             sum.put()
 
-        query = StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
-                                term.start_date, term.end_date)
         rank = 1
         rank_index = 1
         pre_steps = 0
-        for sum in query:
+        for sum in StepSummary.getRankList(term):
             if pre_steps <> sum.steps:
                 rank = rank_index
             sum.rank = rank
             sum.put()
-            pre_steps = steps
+            pre_steps = sum.steps
             rank_index += 1
 
     @classmethod
@@ -274,19 +267,17 @@ class HistoryPage(BaseHandler):
         user = User.getByAccessKey(self.request.get('key'))
         records = StepRecord.gql("WHERE user=:user ORDER BY date DESC", user=user).fetch(30)
         monthly_term = Term()
-        monthly_steps = user.getSteps(monthly_term)
-        monthly_rank = user.getRank(monthly_term)
+        monthly_sum = user.getStepSummary(monthly_term)
+        monthly_count = StepSummary.getRankList(monthly_term).count()
         campaign_term = Term.getCampaignTerm()
-        campaign_steps = user.getSteps(campaign_term)
-        campaign_rank = user.getRank(campaign_term)
-        users_count = User.all().count()
+        campaign_sum = user.getStepSummary(campaign_term)
+        campaign_count = StepSummary.getRankList(campaign_term).count()
         step_count = user.getStepRecords(campaign_term).count()
         self.write_response_template({
             'user': user, 'records': records,
-            'monthly_steps': monthly_steps, 'monthly_rank': monthly_rank,
-            'campaign_steps': campaign_steps, 'campaign_rank': campaign_rank,
-            'users_count': users_count,
-            'average': campaign_steps/step_count if step_count else 0})
+            'monthly_sum': monthly_sum, 'monthly_count': monthly_count,
+            'campaign_sum': campaign_sum, 'campaign_count': campaign_count,
+            'average': campaign_sum.steps/step_count if campaign_sum and step_count else 0})
 
 class RankingPage(BaseHandler):
     def get(self):
@@ -354,7 +345,7 @@ application = webapp.WSGIApplication([
   ('/myprofile', MyProfilePage),
   ('/comments', CommentsPage),
   ('/report', ReportPage)
-], debug=False)
+], debug=True)
 
 
 def main():
