@@ -117,7 +117,7 @@ class Term:
 
     @classmethod
     def getCampaignTerm(cls):
-        return Term(datetime.date(2010, 10, 1), datetime.date(2010, 11, 30))
+        return Term(datetime.date(2011, 10, 1), datetime.date(2011, 11, 30))
 
 class RankItem:
     def __init__(self, rank, user, steps):
