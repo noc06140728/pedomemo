@@ -3,6 +3,7 @@
 <title>pedomemo - レポート</title>
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"/>
 {% ifequal userAgent.isMobile() false %}
+<link href='http://fonts.googleapis.com/css?family=Radley|Questrial&text=pedom' rel='stylesheet' type='text/css'>
 <style type="text/css">
 <!--
 	table, td, th {
@@ -33,13 +34,18 @@
 	td.steps { width: 21mm; text-align: right; }
 	td.sum { text-align: right; }
 	td.sumlabel { text-align: center; background-color: #EEDD88; }
+
+	h1 {
+		text-shadow: 4px 4px 4px #bbb;
+		letter-spacing: 0.3em;
+        }
 -->
 </style>
 {% endifequal %}
 </head>
 <body>
 <div style="float: right"><img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></div>
-<h1><font color="#668000">pedo</font><font color="#d45500">memo</font></h1>
+<h1><font color="#668000" style="font-family: 'Questrial', sans-serif;">pedo</font><font color="#d45500" style="font-size: 105%; font-family: 'Radley', serif;">memo</font></h1>
 {% if userAgent.isMobile %}
 <div>このページは、PC専用のページです。携帯端末では正常に表示できない場合があります。あなたのメニュー画面のURLをPCへメールで転送してください。メールの宛先は、自分のPCのメールアドレスを指定してください。</div>
 <div><font color="orange">[注意]このメールは、他の人のメールアドレスへ送信しないでください。</font></div>
