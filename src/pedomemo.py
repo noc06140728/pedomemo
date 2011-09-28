@@ -142,7 +142,7 @@ class StepSummary(db.Model):
 
     @classmethod
     def getRankList(cls, term):
-        return StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps',
+        return StepSummary.gql('WHERE start_date = :1 AND end_date = :2 ORDER BY steps DESC',
                                term.start_date, term.end_date)
 
 class CountTask(db.Model):

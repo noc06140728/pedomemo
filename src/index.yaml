@@ -26,3 +26,4 @@ indexes:
   - name: end_date
   - name: start_date
   - name: steps
+    direction: desc
