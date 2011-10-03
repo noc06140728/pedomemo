@@ -12,6 +12,9 @@ handlers:
   script: admin.py
   login: admin
 
+- url: /html
+  static_dir: html
+
 - url: /js
   static_dir: js
 
