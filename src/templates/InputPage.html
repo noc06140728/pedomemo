@@ -16,7 +16,7 @@
 <h1>今日は何歩あるいた？</h1>
 </div><!-- /header -->
 <div data-role="content">	
-<form method="POST" action="/input">
+<form method="POST" action="/input" data-ajax="false">
 <div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
 <div>日付:<input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="9"/></div>
 <div>歩数:<input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>歩</div>
