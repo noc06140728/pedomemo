@@ -49,7 +49,7 @@
 {% if userAgent.isMobile %}
 <div>このページは、PC専用のページです。携帯端末では正常に表示できない場合があります。あなたのメニュー画面のURLをPCへメールで転送してください。メールの宛先は、自分のPCのメールアドレスを指定してください。</div>
 <div><font color="orange">[注意]このメールは、他の人のメールアドレスへ送信しないでください。</font></div>
-<a href="mailto:?subject=pedomemo&body=http://hardwave-pedomemo.appspot.com/menu?key={{user.accesskey|urlencode}}">メールで転送</a>
+<a href="mailto:?subject=pedomemo&body=http://hardwave-pedomemo.appspot.com/menu?key={{user.accesskey|urlencode}}" data-ajax="false">メールで転送</a>
 {% else %}
 <div><font color="orange">[注意]このページは、PC専用のページです。携帯端末では正常に表示できない場合があります。</font></div>
 <div>{{user.userid|escape}} さんのキャンペーン期間の記録です。</div>
@@ -308,6 +308,6 @@
 </table>
 {% endif %}
 <hr/>
-<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+<div><a href="/menu?key={{user.accesskey|urlencode}}" data-ajax="false">メニューへ</a></div>
 </body>
 </html>

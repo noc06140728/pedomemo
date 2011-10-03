@@ -22,14 +22,14 @@
 <div>期間平均: {{average}}歩/日</div>
 {% endif %}
 <div><font color="orange">累計・平均は定期的に更新されます。</font></div>
-<div><a href="/menu?key={{user.accesskey|urlencode}}">メニューへ</a></div>
+<div><a href="/menu?key={{user.accesskey|urlencode}}" data-ajax="false">メニューへ</a></div>
 {% for record in records %}
-<div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}歩</div>
+<div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}" data-ajax="false">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}歩</div>
 {% endfor %}
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l">メニューへ</a>
+<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>
