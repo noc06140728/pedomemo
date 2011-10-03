@@ -118,22 +118,22 @@ class StepSummary(db.Model):
                 count_steps[record.user.userid] = record.steps
 
         for userid, steps in count_steps.items():
-            sum = StepSummary.get_or_insert('%s/%s' % (userid, term))
-            sum.user = User.getUser(userid)
-            sum.start_date = term.start_date
-            sum.end_date = term.end_date
-            sum.steps = steps
-            sum.put()
+            step_sum = StepSummary.get_or_insert('%s/%s' % (userid, term))
+            step_sum.user = User.getUser(userid)
+            step_sum.start_date = term.start_date
+            step_sum.end_date = term.end_date
+            step_sum.steps = steps
+            step_sum.put()
 
         rank = 1
         rank_index = 1
         pre_steps = 0
-        for sum in StepSummary.getRankList(term):
-            if pre_steps <> sum.steps:
+        for step_sum in StepSummary.getRankList(term):
+            if pre_steps <> step_sum.steps:
                 rank = rank_index
-            sum.rank = rank
-            sum.put()
-            pre_steps = sum.steps
+            step_sum.rank = rank
+            step_sum.put()
+            pre_steps = step_sum.steps
             rank_index += 1
 
     @classmethod
@@ -328,11 +328,11 @@ class ReportPage(BaseHandler):
         userAgent.setUserAgent(self.request.headers['User-Agent'])
         user = User.getByAccessKey(self.request.get('key'))
         report = {}
-        sum = 0
+        step_sum = 0
         steps = user.getStepRecords(Term.getCampaignTerm())
         for step in steps:
-            sum += step.steps
-            report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': sum}
+            step_sum += step.steps
+            report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': step_sum}
         self.write_response_template({'user': user, 'report': report, 'userAgent': userAgent})
 
 application = webapp.WSGIApplication([
