@@ -345,7 +345,7 @@ application = webapp.WSGIApplication([
   ('/myprofile', MyProfilePage),
   ('/comments', CommentsPage),
   ('/report', ReportPage)
-], debug=True)
+], debug=False)
 
 
 def main():
