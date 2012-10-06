@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-import wsgiref.handlers
 
-from google.appengine.ext import webapp
+import webapp2
 from google.appengine.api import taskqueue
 
 import logging
 from pedomemo import *
 
-class CountStepsWorker(webapp.RequestHandler):
+class CountStepsWorker(webapp2.RequestHandler):
     def get(self):
         logging.info('CountStepsWorker started.')
         start_date = parseDate(self.request.get('start'))
@@ -17,7 +16,7 @@ class CountStepsWorker(webapp.RequestHandler):
         StepSummary.countStepRecords(Term(start_date, end_date))
         logging.info('Calculate steps complate.')
 
-class CountTaskWorker(webapp.RequestHandler):
+class CountTaskWorker(webapp2.RequestHandler):
     def get(self):
         logging.info('CountTaskWorker started.')
         for task in CountTask.all():
@@ -27,15 +26,7 @@ class CountTaskWorker(webapp.RequestHandler):
             task.delete()
         logging.info('Task added.')
 
-application = webapp.WSGIApplication([
+app = webapp2.WSGIApplication([
   ('/admin/count', CountStepsWorker),
   ('/admin/task', CountTaskWorker)
-], debug=False)
-
-
-def main():
-    wsgiref.handlers.CGIHandler().run(application)
-
-
-if __name__ == '__main__':
-    main()
+], debug=True)

@@ -17,15 +17,15 @@
 </div><!-- /header -->
 <div data-role="content">	
 <form method="POST" action="/myprofile" data-ajax="false">
-<div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
-<div>プロフィール:<input type="text" name="profile" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}128{% else %}64{% endif %}" value="{{user.profile|sjis}}"/></div>
+<div>ユーザID: {{user.userid|safe}}<input type="hidden" name="key" value="{{user.accesskey|safe}}"/></div>
+<div>プロフィール:<input type="text" name="profile" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}128{% else %}64{% endif %}" value="{{user.profile}}"/></div>
 <div><input type="submit" value="登録"/></div>
 </form>　　
-<div>他の人のプロフィールは、<a href="/ranking?key={{user.accesskey|urlencode}}" data-ajax="false">ランク表示</a>から参照することができます。</div>
+<div>他の人のプロフィールは、<a href="/ranking?key={{user.accesskey|safe}}" data-ajax="false">ランク表示</a>から参照することができます。</div>
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
+<a href="/menu?key={{user.accesskey|safe}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>

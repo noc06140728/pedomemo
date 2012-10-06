@@ -17,19 +17,19 @@
 </div><!-- /header -->
 <div data-role="content">
 <div><font color="orange">累計・平均は定期的に更新されます。</font></div>
-<div>月間累計: {{monthly_sum.steps}}歩({{monthly_sum.rank}}位/{{monthly_count}}人)</div>
+<div>月間累計: {{monthly_sum.steps|commafmt}}歩({{monthly_sum.rank|commafmt}}位/{{monthly_count|commafmt}}人)</div>
 {% if campaign_sum %}
-<div>期間累計: {{campaign_sum.steps}}歩({{campaign_sum.rank}}位/{{campaign_count}}人)</div>
+<div>期間累計: {{campaign_sum.steps|commafmt}}歩({{campaign_sum.rank|commafmt}}位/{{campaign_count|commafmt}}人)</div>
 <div>期間平均: {{average}}歩/日</div>
 {% endif %}
-<div><a href="/menu?key={{user.accesskey|urlencode}}" data-ajax="false">メニューへ</a></div>
+<div><a href="/menu?key={{user.accesskey|safe}}" data-ajax="false">メニューへ</a></div>
 {% for record in records %}
-<div><a href="/input?key={{user.accesskey|urlencode}}&date={{record.date|date:"Ymd"|urlencode}}" data-ajax="false">{{record.date|date:"Y/m/d"}}</a>: {{record.steps|stringformat:" 6d"}}歩</div>
+<div><a href="/input?key={{user.accesskey|safe}}&date={{record.date|datetimeformat("%Y%m%d")|safe}}" data-ajax="false">{{record.date|datetimeformat("%Y/%m/%d")}}</a>: {{record.steps|commafmt}}歩</div>
 {% endfor %}
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
+<a href="/menu?key={{user.accesskey|safe}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>

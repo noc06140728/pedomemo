@@ -1,17 +1,46 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-import datetime
-import wsgiref.handlers
 import os
+import datetime
 import hashlib
 import re
+import string
 
 from google.appengine.ext import db
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
+import webapp2
+import jinja2
 
-webapp.template.register_template_library('customfilters_m')
+jinja_environment = jinja2.Environment(autoescape=True,
+        loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates'), encoding='shift-jis'))
+
+def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
+    return value.strftime(format)
+
+jinja_environment.filters['datetimeformat'] = datetimeformat
+
+def commalist(clist):
+    head = clist[:3]
+    tail = clist[3:]
+    if len(tail) == 0:
+        res = head
+    elif len(tail) <= 3:
+        res = head + [','] + tail
+    else:
+        res = head + [','] + commalist(tail)
+    return res
+
+def commafmt(value):
+    if value < 0:
+        return '-' + commafmt(-value)
+    else:
+        l = list(str(value))
+        l.reverse()
+        res = commalist(l)
+        res.reverse()
+        return string.join(res, '')
+
+jinja_environment.filters['commafmt'] = commafmt
 
 class ApplicationError(Exception):
     pass
@@ -193,20 +222,20 @@ class Term:
         term = Term.getCampaignTerm(date.year)
         return (term.start_date <= date <= term.end_date)
 
-class BaseHandler(webapp.RequestHandler):
+class BaseHandler(webapp2.RequestHandler):
     def write_response_template(self, values):
         self.response.headers['Content-Type'] = 'text/html; charset=Shift_JIS'
-        path = os.path.join(os.path.dirname(__file__), 'templates', self.__class__.__name__ + '.html')
-        self.response.out.write(template.render(path, values))
+        template = jinja_environment.get_template(self.__class__.__name__ + '.html')
+        self.response.out.write(template.render(values))
 
     def handle_exception(self, exception, debug_mode):
         if debug_mode:
             super(BaseHandler, self).handle_exception(exception, debug_mode)
         else:
             self.response.headers['Content-Type'] = 'text/html; charset=Shift_JIS'
-            path = os.path.join(os.path.dirname(__file__), 'templates', 'ErrorPage.html')
             error_message = exception.args[0]
-            self.response.out.write(template.render(path, {'error_message': error_message}))
+            template = jinja_environment.get_template('ErrorPage.html')
+            self.response.out.write(template.rendar({'error_message': error_message}))
 
 class SignupPage(BaseHandler):
     def get(self):
@@ -335,7 +364,7 @@ class ReportPage(BaseHandler):
             report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': step_sum}
         self.write_response_template({'user': user, 'report': report, 'userAgent': userAgent})
 
-application = webapp.WSGIApplication([
+app = webapp2.WSGIApplication([
   ('/', SignupPage),
   ('/menu', MenuPage),
   ('/input', InputPage),
@@ -345,12 +374,4 @@ application = webapp.WSGIApplication([
   ('/myprofile', MyProfilePage),
   ('/comments', CommentsPage),
   ('/report', ReportPage)
-], debug=False)
-
-
-def main():
-    wsgiref.handlers.CGIHandler().run(application)
-
-
-if __name__ == '__main__':
-    main()
+], debug=True)

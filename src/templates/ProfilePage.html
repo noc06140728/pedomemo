@@ -15,12 +15,12 @@
 <h1>プロフィール</h1>
 </div><!-- /header -->
 <div data-role="content">	
-<div>{{profile_user.userid|escape}} さんのプロフィール</div>
-<div>{{profile_user.profile|sjis|escape}}</div>
+<div>{{profile_user.userid|safe}} さんのプロフィール</div>
+<div>{{profile_user.profile|safe}}</div>
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
+<a href="/menu?key={{user.accesskey|safe}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>

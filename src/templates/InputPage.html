@@ -17,16 +17,16 @@
 </div><!-- /header -->
 <div data-role="content">	
 <form method="POST" action="/input" data-ajax="false">
-<div>ユーザID: {{user.userid|escape}}<input type="hidden" name="key" value="{{user.accesskey|urlencode}}"/></div>
-<div>日付:<input type="text" name="date" value="{{record.date|date:"Ymd"}}" istyle="4" mode="numeric" maxlength="8" size="9"/></div>
-<div>歩数:<input type="text" name="steps" value="{{record.steps|default:""}}" istyle="4" mode="numeric" maxlength="6" size="6"/>歩</div>
-<div>コメント:<input type="text" name="comment" value="{{record.comment|sjis|default:""}}" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}40{% else %}20{% endif %}"/></div>
+<div>ユーザID: {{user.userid|safe}}<input type="hidden" name="key" value="{{user.accesskey|safe}}"/></div>
+<div>日付:<input type="text" name="date" value="{{record.date|datetimeformat("%Y%m%d")}}" istyle="4" mode="numeric" maxlength="8" size="9"/></div>
+<div>歩数:<input type="text" name="steps" value="{{record.steps|default("", true)}}" istyle="4" mode="numeric" maxlength="6" size="6"/>歩</div>
+<div>コメント:<input type="text" name="comment" value="{{record.comment|default("", true)}}" istyle="1" mode="hiragana" maxlength="{% if userAgent.isDocomo %}40{% else %}20{% endif %}"/></div>
 <div><input type="submit" value="登録"/></div>
 </form>
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
+<a href="/menu?key={{user.accesskey|safe}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>

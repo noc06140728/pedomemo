@@ -17,12 +17,12 @@
 </div><!-- /header -->
 <div data-role="content">	
 {% for step in steps %}
-<font color="{{colors|random}}"><marquee scrollamount="{{speeds|random}}" loop="-1">{{step.comment|sjis|escape}}-{{step.user.userid|escape}}({{step.date|date:"m/d"}})</marquee></font>
+<font color="{{colors|random}}"><marquee scrollamount="{{speeds|random}}" loop="-1">{{step.comment|safe}}-{{step.user.userid|safe}}({{step.date|datetimeformat("%m/%d")}})</marquee></font>
 {% endfor %}
 </div><!-- /content -->
 <hr/>
 <div data-role="footer" class="ui-bar">
-<a href="/menu?key={{user.accesskey|urlencode}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
+<a href="/menu?key={{user.accesskey|safe}}" data-role="button" data-icon="arrow-l" data-ajax="false">メニューへ</a>
 </div><!-- /footer -->
 </div><!-- /page -->
 </body>

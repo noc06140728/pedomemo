@@ -16,16 +16,16 @@
 <h1><font color="#668000">pedo</font><font color="#d45500">memo</font> beta3</h1>
 </div><!-- /header -->
 <div data-role="content">	
-<div>ようこそ {{user.userid|escape}} さん。</div>
+<div>ようこそ {{user.userid|safe}} さん。</div>
 <marquee scrollamount="3" loop="-1" bgcolor="#ffddaa">スマートフォン向けの表示に対応しました。</marquee>
 <ul data-role="listview" data-inset="true">
 <li data-role="list-divider">Menu</li> 
-<li><a href="/input?key={{user.accesskey|urlencode}}" data-ajax="false">歩数入力</a></li>
-<li><a href="/history?key={{user.accesskey|urlencode}}" data-ajax="false">履歴表示</a></li>
-<li><a href="/ranking?key={{user.accesskey|urlencode}}" data-ajax="false">ランク表示</a></li>
-<li><a href="/myprofile?key={{user.accesskey|urlencode}}&userid={{user.userid|escape}}" data-ajax="false">マイプロフィール</a></li>
-<li><a href="/comments?key={{user.accesskey|urlencode}}" data-ajax="false">みんなのコメント</a></li>
-<li><a href="/report?key={{user.accesskey|urlencode}}" data-ajax="false">レポート</a></li>
+<li><a href="/input?key={{user.accesskey|safe}}" data-ajax="false">歩数入力</a></li>
+<li><a href="/history?key={{user.accesskey|safe}}" data-ajax="false">履歴表示</a></li>
+<li><a href="/ranking?key={{user.accesskey|safe}}" data-ajax="false">ランク表示</a></li>
+<li><a href="/myprofile?key={{user.accesskey|safe}}&userid={{user.userid|safe}}" data-ajax="false">マイプロフィール</a></li>
+<li><a href="/comments?key={{user.accesskey|safe}}" data-ajax="false">みんなのコメント</a></li>
+<li><a href="/report?key={{user.accesskey|safe}}" data-ajax="false">レポート</a></li>
 </ul>
 </div><hr/>
 <div><font color="orange">このページをブックマーク登録してください。</font></div>

@@ -1,7 +1,12 @@
 application: hardwave-pedomemo
 version: 3
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
+
+libraries:
+- name: jinja2
+  version: latest
 
 handlers:
 - url: /favicon.ico
@@ -9,12 +14,12 @@ handlers:
   upload: images/favicon.ico
 
 - url: /admin/.*
-  script: admin.py
+  script: admin.app
   login: admin
 
 - url: /js
   static_dir: js
 
 - url: /.*
-  script: pedomemo.py
+  script: pedomemo.app
 
