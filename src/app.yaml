@@ -1,5 +1,5 @@
-application: hardwave-pedomemo
-version: 3
+application: hardwave-pedomemo-hrd
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
