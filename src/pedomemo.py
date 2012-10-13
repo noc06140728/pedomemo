@@ -335,16 +335,30 @@ class ReportPage(BaseHandler):
             report[step.date.month * 100 + step.date.day] = {'steps': step.steps, 'sum': step_sum}
         self.write_response_template({'user': user, 'report': report, 'userAgent': userAgent})
 
+class RedirectPage(webapp.RequestHandler):
+    def get(self):
+        import logging
+        path = self.request.path
+        query = self.request.query_string
+
+        uri = 'http://pedomemo.hardwave.net'
+        if path:
+            uri = uri + path
+        if query:
+            uri = uri + '?' + query
+
+        self.redirect(uri)
+
 application = webapp.WSGIApplication([
-  ('/', SignupPage),
-  ('/menu', MenuPage),
-  ('/input', InputPage),
-  ('/history', HistoryPage),
-  ('/ranking', RankingPage),
-  ('/profile', ProfilePage),
-  ('/myprofile', MyProfilePage),
-  ('/comments', CommentsPage),
-  ('/report', ReportPage)
+  ('/', RedirectPage),
+  ('/menu', RedirectPage),
+  ('/input', RedirectPage),
+  ('/history', RedirectPage),
+  ('/ranking', RedirectPage),
+  ('/profile', RedirectPage),
+  ('/myprofile', RedirectPage),
+  ('/comments', RedirectPage),
+  ('/report', RedirectPage)
 ], debug=False)
 
 
