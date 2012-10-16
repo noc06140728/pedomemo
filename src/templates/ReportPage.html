@@ -6,39 +6,45 @@
 <link href='http://fonts.googleapis.com/css?family=Radley|Questrial&text=pedom' rel='stylesheet' type='text/css'>
 <style type="text/css">
 <!--
-	table, td, th {
-		margin: 0mm;
-		font-size: 2.6mm;
-		border: 0.1mm black solid;
-		border-collapse: collapse;
-	}
-	table {
-		width: 10cm;
-		padding: 0mm;
-		height: 15.3cm;
-	}
-	th {
-		background-color: #EEDD88;
-		padding: 0mm 0.5mm 0mm 0mm;
-	}
-	th.month {
-		background-color: #FFFFFF;
-		text-align: center;
-		font-size: 4.6mm;
-	}
-	th.date { width: 5mm; text-align: center;}
-	th.steps { width: 21mm; text-align: center; }
-	th.sum { text-align: center; }
-	td { padding: 0mm 0.5mm 0mm 0mm; }
-	td.date { width: 5mm; text-align: center; background-color: #EEDD88; }
-	td.steps { width: 21mm; text-align: right; }
-	td.sum { text-align: right; }
-	td.sumlabel { text-align: center; background-color: #EEDD88; }
+    table, td, th {
+        margin: 0mm;
+        padding: 0mm;
+        font-size: 2.6mm;
+        border: 1px black solid;
+        text-align: center;
+    }
+    table {
+        width: 9.95cm;
+        height: 15.2cm;
+        border-collapse: collapse;
+    }
 
-	h1 {
-		text-shadow: 4px 4px 4px #bbb;
-		letter-spacing: 0.3em;
-	}
+    th {
+        background-color: #EEDD88;
+    }
+    th.month {
+        background-color: #FFFFFF;
+        font-size: 4.6mm;
+    }
+    th.date {
+        width: 5mm;
+    }
+    th.steps, th.sum {
+        width: 22mm;
+    }
+
+    td.date, td.sumlabel {
+        background-color: #EEDD88;
+    }
+    td.steps, td.sum {
+        text-align: right;
+        padding: 0mm 1mm;
+    }
+
+    h1 {
+        text-shadow: 4px 4px 4px #bbb;
+        letter-spacing: 0.3em;
+    }
 -->
 </style>
 {% endif %}
@@ -56,564 +62,564 @@
 <div>下の表を印刷したものを外枠で切りとって、記録表に張って提出しましょう！</div>
 <hr/>
 <table>
-	<tr><th class="month" colspan="3">10月</th><th class="month" colspan="3">11月</th></tr>
-	<tr><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th></tr>
-	<tr>
-		<td class="date">1</td>
-		{% if report.1001 is defined %}
-		<td class="steps">{{report.1001.steps|commafmt}}</td>
-		<td class="sum">{{report.1001.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">1</td>
-		{% if report.1101 is defined %}
-		<td class="steps">{{report.1101.steps|commafmt}}</td>
-		<td class="sum">{{report.1101.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">2</td>
-		{% if report.1002 is defined %}
-		<td class="steps">{{report.1002.steps|commafmt}}</td>
-		<td class="sum">{{report.1002.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">2</td>
-		{% if report.1102 is defined %}
-		<td class="steps">{{report.1102.steps|commafmt}}</td>
-		<td class="sum">{{report.1102.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">3</td>
-		{% if report.1003 is defined %}
-		<td class="steps">{{report.1003.steps|commafmt}}</td>
-		<td class="sum">{{report.1003.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">3</td>
-		{% if report.1103 is defined %}
-		<td class="steps">{{report.1103.steps|commafmt}}</td>
-		<td class="sum">{{report.1103.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">4</td>
-		{% if report.1004 is defined %}
-		<td class="steps">{{report.1004.steps|commafmt}}</td>
-		<td class="sum">{{report.1004.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">4</td>
-		{% if report.1104 is defined %}
-		<td class="steps">{{report.1104.steps|commafmt}}</td>
-		<td class="sum">{{report.1104.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">5</td>
-		{% if report.1005 is defined %}
-		<td class="steps">{{report.1005.steps|commafmt}}</td>
-		<td class="sum">{{report.1005.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">5</td>
-		{% if report.1105 is defined %}
-		<td class="steps">{{report.1105.steps|commafmt}}</td>
-		<td class="sum">{{report.1105.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">6</td>
-		{% if report.1006 is defined %}
-		<td class="steps">{{report.1006.steps|commafmt}}</td>
-		<td class="sum">{{report.1006.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">6</td>
-		{% if report.1106 is defined %}
-		<td class="steps">{{report.1106.steps|commafmt}}</td>
-		<td class="sum">{{report.1106.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">7</td>
-		{% if report.1007 is defined %}
-		<td class="steps">{{report.1007.steps|commafmt}}</td>
-		<td class="sum">{{report.1007.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">7</td>
-		{% if report.1107 is defined %}
-		<td class="steps">{{report.1107.steps|commafmt}}</td>
-		<td class="sum">{{report.1107.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">8</td>
-		{% if report.1008 is defined %}
-		<td class="steps">{{report.1008.steps|commafmt}}</td>
-		<td class="sum">{{report.1008.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">8</td>
-		{% if report.1108 is defined %}
-		<td class="steps">{{report.1108.steps|commafmt}}</td>
-		<td class="sum">{{report.1108.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">9</td>
-		{% if report.1009 is defined %}
-		<td class="steps">{{report.1009.steps|commafmt}}</td>
-		<td class="sum">{{report.1009.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">9</td>
-		{% if report.1109 is defined %}
-		<td class="steps">{{report.1109.steps|commafmt}}</td>
-		<td class="sum">{{report.1109.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">10</td>
-		{% if report.1010 is defined %}
-		<td class="steps">{{report.1010.steps|commafmt}}</td>
-		<td class="sum">{{report.1010.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">10</td>
-		{% if report.1110 is defined %}
-		<td class="steps">{{report.1110.steps|commafmt}}</td>
-		<td class="sum">{{report.1110.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">11</td>
-		{% if report.1011 is defined %}
-		<td class="steps">{{report.1011.steps|commafmt}}</td>
-		<td class="sum">{{report.1011.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">11</td>
-		{% if report.1111 is defined %}
-		<td class="steps">{{report.1111.steps|commafmt}}</td>
-		<td class="sum">{{report.1111.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">12</td>
-		{% if report.1012 is defined %}
-		<td class="steps">{{report.1012.steps|commafmt}}</td>
-		<td class="sum">{{report.1012.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">12</td>
-		{% if report.1112 is defined %}
-		<td class="steps">{{report.1112.steps|commafmt}}</td>
-		<td class="sum">{{report.1112.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">13</td>
-		{% if report.1013 is defined %}
-		<td class="steps">{{report.1013.steps|commafmt}}</td>
-		<td class="sum">{{report.1013.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">13</td>
-		{% if report.1113 is defined %}
-		<td class="steps">{{report.1113.steps|commafmt}}</td>
-		<td class="sum">{{report.1113.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">14</td>
-		{% if report.1014 is defined %}
-		<td class="steps">{{report.1014.steps|commafmt}}</td>
-		<td class="sum">{{report.1014.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">14</td>
-		{% if report.1114 is defined %}
-		<td class="steps">{{report.1114.steps|commafmt}}</td>
-		<td class="sum">{{report.1114.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">15</td>
-		{% if report.1015 is defined %}
-		<td class="steps">{{report.1015.steps|commafmt}}</td>
-		<td class="sum">{{report.1015.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">15</td>
-		{% if report.1115 is defined %}
-		<td class="steps">{{report.1115.steps|commafmt}}</td>
-		<td class="sum">{{report.1115.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">16</td>
-		{% if report.1016 is defined %}
-		<td class="steps">{{report.1016.steps|commafmt}}</td>
-		<td class="sum">{{report.1016.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">16</td>
-		{% if report.1116 is defined %}
-		<td class="steps">{{report.1116.steps|commafmt}}</td>
-		<td class="sum">{{report.1116.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">17</td>
-		{% if report.1017 is defined %}
-		<td class="steps">{{report.1017.steps|commafmt}}</td>
-		<td class="sum">{{report.1017.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">17</td>
-		{% if report.1117 is defined %}
-		<td class="steps">{{report.1117.steps|commafmt}}</td>
-		<td class="sum">{{report.1117.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">18</td>
-		{% if report.1018 is defined %}
-		<td class="steps">{{report.1018.steps|commafmt}}</td>
-		<td class="sum">{{report.1018.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">18</td>
-		{% if report.1118 is defined %}
-		<td class="steps">{{report.1118.steps|commafmt}}</td>
-		<td class="sum">{{report.1118.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">19</td>
-		{% if report.1019 is defined %}
-		<td class="steps">{{report.1019.steps|commafmt}}</td>
-		<td class="sum">{{report.1019.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">19</td>
-		{% if report.1119 is defined %}
-		<td class="steps">{{report.1119.steps|commafmt}}</td>
-		<td class="sum">{{report.1119.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">20</td>
-		{% if report.1020 is defined %}
-		<td class="steps">{{report.1020.steps|commafmt}}</td>
-		<td class="sum">{{report.1020.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">20</td>
-		{% if report.1120 is defined %}
-		<td class="steps">{{report.1120.steps|commafmt}}</td>
-		<td class="sum">{{report.1120.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">21</td>
-		{% if report.1021 is defined %}
-		<td class="steps">{{report.1021.steps|commafmt}}</td>
-		<td class="sum">{{report.1021.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">21</td>
-		{% if report.1121 is defined %}
-		<td class="steps">{{report.1121.steps|commafmt}}</td>
-		<td class="sum">{{report.1121.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">22</td>
-		{% if report.1022 is defined %}
-		<td class="steps">{{report.1022.steps|commafmt}}</td>
-		<td class="sum">{{report.1022.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">22</td>
-		{% if report.1122 is defined %}
-		<td class="steps">{{report.1122.steps|commafmt}}</td>
-		<td class="sum">{{report.1122.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">23</td>
-		{% if report.1023 is defined %}
-		<td class="steps">{{report.1023.steps|commafmt}}</td>
-		<td class="sum">{{report.1023.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">23</td>
-		{% if report.1123 is defined %}
-		<td class="steps">{{report.1123.steps|commafmt}}</td>
-		<td class="sum">{{report.1123.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">24</td>
-		{% if report.1024 is defined %}
-		<td class="steps">{{report.1024.steps|commafmt}}</td>
-		<td class="sum">{{report.1024.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">24</td>
-		{% if report.1124 is defined %}
-		<td class="steps">{{report.1124.steps|commafmt}}</td>
-		<td class="sum">{{report.1124.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">25</td>
-		{% if report.1025 is defined %}
-		<td class="steps">{{report.1025.steps|commafmt}}</td>
-		<td class="sum">{{report.1025.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">25</td>
-		{% if report.1125 is defined %}
-		<td class="steps">{{report.1125.steps|commafmt}}</td>
-		<td class="sum">{{report.1125.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">26</td>
-		{% if report.1026 is defined %}
-		<td class="steps">{{report.1026.steps|commafmt}}</td>
-		<td class="sum">{{report.1026.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">26</td>
-		{% if report.1126 is defined %}
-		<td class="steps">{{report.1126.steps|commafmt}}</td>
-		<td class="sum">{{report.1126.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">27</td>
-		{% if report.1027 is defined %}
-		<td class="steps">{{report.1027.steps|commafmt}}</td>
-		<td class="sum">{{report.1027.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">27</td>
-		{% if report.1127 is defined %}
-		<td class="steps">{{report.1127.steps|commafmt}}</td>
-		<td class="sum">{{report.1127.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">28</td>
-		{% if report.1028 is defined %}
-		<td class="steps">{{report.1028.steps|commafmt}}</td>
-		<td class="sum">{{report.1028.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">28</td>
-		{% if report.1128 is defined %}
-		<td class="steps">{{report.1128.steps|commafmt}}</td>
-		<td class="sum">{{report.1128.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">29</td>
-		{% if report.1029 is defined %}
-		<td class="steps">{{report.1029.steps|commafmt}}</td>
-		<td class="sum">{{report.1029.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">29</td>
-		{% if report.1129 is defined %}
-		<td class="steps">{{report.1129.steps|commafmt}}</td>
-		<td class="sum">{{report.1129.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">30</td>
-		{% if report.1030 is defined %}
-		<td class="steps">{{report.1030.steps|commafmt}}</td>
-		<td class="sum">{{report.1030.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="date">30</td>
-		{% if report.1130 is defined %}
-		<td class="steps">{{report.1130.steps|commafmt}}</td>
-		<td class="sum">{{report.1130.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td class="date">31</td>
-		{% if report.1031 is defined %}
-		<td class="steps">{{report.1031.steps|commafmt}}</td>
-		<td class="sum">{{report.1031.sum|commafmt}}</td>
-		{% else %}
-		<td class="steps">&nbsp;</td>
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-		<td class="sumlabel" colspan="2">10月,11月の合計</td>
-		{% if report.1130 is defined %}
-		<td class="sum">{{report.1130.sum|commafmt}}</td>
-		{% else %}
-		<td class="sum">&nbsp;</td>
-		{% endif %}
-	</tr>
+    <tr><th class="month" colspan="3">10月</th><th class="month" colspan="3">11月</th></tr>
+    <tr><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th><th class="date">日</th><th class="steps">歩　　数</th><th class="sum">累　　計</th></tr>
+    <tr>
+        <td class="date">1</td>
+        {% if report.1001 is defined %}
+        <td class="steps">{{report.1001.steps|commafmt}}</td>
+        <td class="sum">{{report.1001.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">1</td>
+        {% if report.1101 is defined %}
+        <td class="steps">{{report.1101.steps|commafmt}}</td>
+        <td class="sum">{{report.1101.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">2</td>
+        {% if report.1002 is defined %}
+        <td class="steps">{{report.1002.steps|commafmt}}</td>
+        <td class="sum">{{report.1002.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">2</td>
+        {% if report.1102 is defined %}
+        <td class="steps">{{report.1102.steps|commafmt}}</td>
+        <td class="sum">{{report.1102.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">3</td>
+        {% if report.1003 is defined %}
+        <td class="steps">{{report.1003.steps|commafmt}}</td>
+        <td class="sum">{{report.1003.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">3</td>
+        {% if report.1103 is defined %}
+        <td class="steps">{{report.1103.steps|commafmt}}</td>
+        <td class="sum">{{report.1103.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">4</td>
+        {% if report.1004 is defined %}
+        <td class="steps">{{report.1004.steps|commafmt}}</td>
+        <td class="sum">{{report.1004.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">4</td>
+        {% if report.1104 is defined %}
+        <td class="steps">{{report.1104.steps|commafmt}}</td>
+        <td class="sum">{{report.1104.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">5</td>
+        {% if report.1005 is defined %}
+        <td class="steps">{{report.1005.steps|commafmt}}</td>
+        <td class="sum">{{report.1005.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">5</td>
+        {% if report.1105 is defined %}
+        <td class="steps">{{report.1105.steps|commafmt}}</td>
+        <td class="sum">{{report.1105.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">6</td>
+        {% if report.1006 is defined %}
+        <td class="steps">{{report.1006.steps|commafmt}}</td>
+        <td class="sum">{{report.1006.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">6</td>
+        {% if report.1106 is defined %}
+        <td class="steps">{{report.1106.steps|commafmt}}</td>
+        <td class="sum">{{report.1106.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">7</td>
+        {% if report.1007 is defined %}
+        <td class="steps">{{report.1007.steps|commafmt}}</td>
+        <td class="sum">{{report.1007.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">7</td>
+        {% if report.1107 is defined %}
+        <td class="steps">{{report.1107.steps|commafmt}}</td>
+        <td class="sum">{{report.1107.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">8</td>
+        {% if report.1008 is defined %}
+        <td class="steps">{{report.1008.steps|commafmt}}</td>
+        <td class="sum">{{report.1008.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">8</td>
+        {% if report.1108 is defined %}
+        <td class="steps">{{report.1108.steps|commafmt}}</td>
+        <td class="sum">{{report.1108.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">9</td>
+        {% if report.1009 is defined %}
+        <td class="steps">{{report.1009.steps|commafmt}}</td>
+        <td class="sum">{{report.1009.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">9</td>
+        {% if report.1109 is defined %}
+        <td class="steps">{{report.1109.steps|commafmt}}</td>
+        <td class="sum">{{report.1109.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">10</td>
+        {% if report.1010 is defined %}
+        <td class="steps">{{report.1010.steps|commafmt}}</td>
+        <td class="sum">{{report.1010.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">10</td>
+        {% if report.1110 is defined %}
+        <td class="steps">{{report.1110.steps|commafmt}}</td>
+        <td class="sum">{{report.1110.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">11</td>
+        {% if report.1011 is defined %}
+        <td class="steps">{{report.1011.steps|commafmt}}</td>
+        <td class="sum">{{report.1011.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">11</td>
+        {% if report.1111 is defined %}
+        <td class="steps">{{report.1111.steps|commafmt}}</td>
+        <td class="sum">{{report.1111.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">12</td>
+        {% if report.1012 is defined %}
+        <td class="steps">{{report.1012.steps|commafmt}}</td>
+        <td class="sum">{{report.1012.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">12</td>
+        {% if report.1112 is defined %}
+        <td class="steps">{{report.1112.steps|commafmt}}</td>
+        <td class="sum">{{report.1112.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">13</td>
+        {% if report.1013 is defined %}
+        <td class="steps">{{report.1013.steps|commafmt}}</td>
+        <td class="sum">{{report.1013.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">13</td>
+        {% if report.1113 is defined %}
+        <td class="steps">{{report.1113.steps|commafmt}}</td>
+        <td class="sum">{{report.1113.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">14</td>
+        {% if report.1014 is defined %}
+        <td class="steps">{{report.1014.steps|commafmt}}</td>
+        <td class="sum">{{report.1014.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">14</td>
+        {% if report.1114 is defined %}
+        <td class="steps">{{report.1114.steps|commafmt}}</td>
+        <td class="sum">{{report.1114.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">15</td>
+        {% if report.1015 is defined %}
+        <td class="steps">{{report.1015.steps|commafmt}}</td>
+        <td class="sum">{{report.1015.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">15</td>
+        {% if report.1115 is defined %}
+        <td class="steps">{{report.1115.steps|commafmt}}</td>
+        <td class="sum">{{report.1115.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">16</td>
+        {% if report.1016 is defined %}
+        <td class="steps">{{report.1016.steps|commafmt}}</td>
+        <td class="sum">{{report.1016.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">16</td>
+        {% if report.1116 is defined %}
+        <td class="steps">{{report.1116.steps|commafmt}}</td>
+        <td class="sum">{{report.1116.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">17</td>
+        {% if report.1017 is defined %}
+        <td class="steps">{{report.1017.steps|commafmt}}</td>
+        <td class="sum">{{report.1017.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">17</td>
+        {% if report.1117 is defined %}
+        <td class="steps">{{report.1117.steps|commafmt}}</td>
+        <td class="sum">{{report.1117.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">18</td>
+        {% if report.1018 is defined %}
+        <td class="steps">{{report.1018.steps|commafmt}}</td>
+        <td class="sum">{{report.1018.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">18</td>
+        {% if report.1118 is defined %}
+        <td class="steps">{{report.1118.steps|commafmt}}</td>
+        <td class="sum">{{report.1118.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">19</td>
+        {% if report.1019 is defined %}
+        <td class="steps">{{report.1019.steps|commafmt}}</td>
+        <td class="sum">{{report.1019.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">19</td>
+        {% if report.1119 is defined %}
+        <td class="steps">{{report.1119.steps|commafmt}}</td>
+        <td class="sum">{{report.1119.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">20</td>
+        {% if report.1020 is defined %}
+        <td class="steps">{{report.1020.steps|commafmt}}</td>
+        <td class="sum">{{report.1020.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">20</td>
+        {% if report.1120 is defined %}
+        <td class="steps">{{report.1120.steps|commafmt}}</td>
+        <td class="sum">{{report.1120.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">21</td>
+        {% if report.1021 is defined %}
+        <td class="steps">{{report.1021.steps|commafmt}}</td>
+        <td class="sum">{{report.1021.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">21</td>
+        {% if report.1121 is defined %}
+        <td class="steps">{{report.1121.steps|commafmt}}</td>
+        <td class="sum">{{report.1121.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">22</td>
+        {% if report.1022 is defined %}
+        <td class="steps">{{report.1022.steps|commafmt}}</td>
+        <td class="sum">{{report.1022.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">22</td>
+        {% if report.1122 is defined %}
+        <td class="steps">{{report.1122.steps|commafmt}}</td>
+        <td class="sum">{{report.1122.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">23</td>
+        {% if report.1023 is defined %}
+        <td class="steps">{{report.1023.steps|commafmt}}</td>
+        <td class="sum">{{report.1023.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">23</td>
+        {% if report.1123 is defined %}
+        <td class="steps">{{report.1123.steps|commafmt}}</td>
+        <td class="sum">{{report.1123.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">24</td>
+        {% if report.1024 is defined %}
+        <td class="steps">{{report.1024.steps|commafmt}}</td>
+        <td class="sum">{{report.1024.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">24</td>
+        {% if report.1124 is defined %}
+        <td class="steps">{{report.1124.steps|commafmt}}</td>
+        <td class="sum">{{report.1124.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">25</td>
+        {% if report.1025 is defined %}
+        <td class="steps">{{report.1025.steps|commafmt}}</td>
+        <td class="sum">{{report.1025.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">25</td>
+        {% if report.1125 is defined %}
+        <td class="steps">{{report.1125.steps|commafmt}}</td>
+        <td class="sum">{{report.1125.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">26</td>
+        {% if report.1026 is defined %}
+        <td class="steps">{{report.1026.steps|commafmt}}</td>
+        <td class="sum">{{report.1026.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">26</td>
+        {% if report.1126 is defined %}
+        <td class="steps">{{report.1126.steps|commafmt}}</td>
+        <td class="sum">{{report.1126.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">27</td>
+        {% if report.1027 is defined %}
+        <td class="steps">{{report.1027.steps|commafmt}}</td>
+        <td class="sum">{{report.1027.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">27</td>
+        {% if report.1127 is defined %}
+        <td class="steps">{{report.1127.steps|commafmt}}</td>
+        <td class="sum">{{report.1127.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">28</td>
+        {% if report.1028 is defined %}
+        <td class="steps">{{report.1028.steps|commafmt}}</td>
+        <td class="sum">{{report.1028.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">28</td>
+        {% if report.1128 is defined %}
+        <td class="steps">{{report.1128.steps|commafmt}}</td>
+        <td class="sum">{{report.1128.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">29</td>
+        {% if report.1029 is defined %}
+        <td class="steps">{{report.1029.steps|commafmt}}</td>
+        <td class="sum">{{report.1029.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">29</td>
+        {% if report.1129 is defined %}
+        <td class="steps">{{report.1129.steps|commafmt}}</td>
+        <td class="sum">{{report.1129.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">30</td>
+        {% if report.1030 is defined %}
+        <td class="steps">{{report.1030.steps|commafmt}}</td>
+        <td class="sum">{{report.1030.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="date">30</td>
+        {% if report.1130 is defined %}
+        <td class="steps">{{report.1130.steps|commafmt}}</td>
+        <td class="sum">{{report.1130.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="date">31</td>
+        {% if report.1031 is defined %}
+        <td class="steps">{{report.1031.steps|commafmt}}</td>
+        <td class="sum">{{report.1031.sum|commafmt}}</td>
+        {% else %}
+        <td class="steps">&nbsp;</td>
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+        <td class="sumlabel" colspan="2">10月,11月の合計</td>
+        {% if report.1130 is defined %}
+        <td class="sum">{{report.1130.sum|commafmt}}</td>
+        {% else %}
+        <td class="sum">&nbsp;</td>
+        {% endif %}
+    </tr>
 </table>
 {% endif %}
 <hr/>
