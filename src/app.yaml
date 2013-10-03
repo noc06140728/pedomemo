@@ -1,4 +1,4 @@
-application: hardwave-pedomemo-hrd
+application: pedo-memo
 version: 1
 runtime: python27
 api_version: 1
