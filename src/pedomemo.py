@@ -341,7 +341,7 @@ class RedirectPage(webapp.RequestHandler):
         path = self.request.path
         query = self.request.query_string
 
-        uri = 'http://pedomemo.hardwave.net'
+        uri = 'http://pedo-memo.appspot.com'
         if path:
             uri = uri + path
         if query:
