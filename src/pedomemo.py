@@ -146,24 +146,27 @@ class StepSummary(db.Model):
             else:
                 count_steps[record.user.userid] = record.steps
 
+        step_sum_list = []
         for userid, steps in count_steps.items():
             step_sum = StepSummary.get_or_insert('%s/%s' % (userid, term))
             step_sum.user = User.getUser(userid)
             step_sum.start_date = term.start_date
             step_sum.end_date = term.end_date
             step_sum.steps = steps
-            step_sum.put()
+            step_sum_list.append(step_sum)
+
+        step_sum_list.sort(key=lambda step_sum: step_sum.steps, reverse=True)
 
         rank = 1
         rank_index = 1
         pre_steps = 0
-        for step_sum in StepSummary.getRankList(term):
+        for step_sum in step_sum_list:
             if pre_steps <> step_sum.steps:
                 rank = rank_index
             step_sum.rank = rank
-            step_sum.put()
             pre_steps = step_sum.steps
             rank_index += 1
+        db.put(step_sum_list)
 
     @classmethod
     def getSummaryStep(cls, user, term):
@@ -235,7 +238,7 @@ class BaseHandler(webapp2.RequestHandler):
             self.response.headers['Content-Type'] = 'text/html; charset=Shift_JIS'
             error_message = exception.args[0]
             template = jinja_environment.get_template('ErrorPage.html')
-            self.response.out.write(template.rendar({'error_message': error_message}))
+            self.response.out.write(template.render({'error_message': error_message}))
 
 class SignupPage(BaseHandler):
     def get(self):
@@ -254,11 +257,18 @@ class SignupPage(BaseHandler):
         user.profile = parseProfile(self.request.get('profile'))
         user.accesskey = hashlib.sha512(userid + str(datetime.datetime.today())).hexdigest()
         user.put()
-        self.redirect('/menu?key=%s' % user.accesskey)
+        self.redirect('/menu?id=%s&key=%s' % (user.key().id(), user.accesskey))
 
 class MenuPage(BaseHandler):
     def get(self):
-        user = User.getByAccessKey(self.request.get('key'))
+        id = self.request.get('id')
+        accesskey = self.request.get('key')
+        if id:
+            user = User.get_by_id(int(id))
+            if user.accesskey <> accesskey:
+                raise ApplicationError(u'該当するユーザが見つかりませんでした。')
+        else:
+            user = User.getByAccessKey(self.request.get('key'))
         self.write_response_template({'user': user})
     
 class InputPage(BaseHandler):
@@ -374,4 +384,4 @@ app = webapp2.WSGIApplication([
   ('/myprofile', MyProfilePage),
   ('/comments', CommentsPage),
   ('/report', ReportPage)
-], debug=True)
+], debug=False)
