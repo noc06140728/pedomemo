@@ -21,6 +21,9 @@ handlers:
   script: admin.app
   login: admin
 
+- url: /html
+  static_dir: html
+
 - url: /js
   static_dir: js
 
